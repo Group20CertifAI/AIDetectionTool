@@ -8,5 +8,5 @@
         - (update any information on the page)
 - FAQ
 - About Us
-- New change
+- 
 
