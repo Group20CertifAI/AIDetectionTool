@@ -870,7 +870,7 @@ blockquote {
 }
 
 .contact-form .form-floating>textarea {
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--border-radius-medium); 
   height: 150px;
 }
 
