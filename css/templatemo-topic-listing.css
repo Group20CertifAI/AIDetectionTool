@@ -874,7 +874,20 @@ blockquote {
   height: 150px;
 }
 
+/*---------------------------------------
+  LOGIN               
+-----------------------------------------*/
+.login {
+  
+  border-radius: var(--border-radius-large);
+  color: var(--p-color);
+  margin-bottom: 0px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 20px;
+  outline: none;
 
+}
 /*---------------------------------------
   SUBSCRIBE FORM               
 -----------------------------------------*/
