@@ -8,6 +8,5 @@
         - (update any information on the page)
 - FAQ
 - About Us
-- Report issues
-- Rating
+- New change
 

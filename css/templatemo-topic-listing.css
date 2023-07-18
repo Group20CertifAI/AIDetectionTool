@@ -870,10 +870,20 @@ blockquote {
 }
 
 .contact-form .form-floating>textarea {
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--border-radius-medium); 
   height: 150px;
 }
 
+/*---------------------------------------
+  LOGIN               
+-----------------------------------------*/
+.form-control {
+  margin-bottom: 0px;
+}
+
+ul {
+  list-style-type: none;
+}
 
 /*---------------------------------------
   SUBSCRIBE FORM               
