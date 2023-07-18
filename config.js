@@ -12,3 +12,20 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
 
   const auth = firebase.auth();
+
+
+  function login(){
+    email = document.getElementById("email").value;
+    password = document.getElementById("password").value;
+    auth.signInWithEmailAndPassword(email, password).then (cred => {
+                alert(cred.user.email + " has logged in")
+    })
+}
+
+function signUp() {
+    email = document.getElementById("email").value;
+    password = document.getElementById("password").value;
+    auth.createUserWithEmailAndPassword(email, password).then (cred => {
+        alert(cred.user.email + " has signed up")
+    })
+}
