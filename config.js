@@ -29,3 +29,4 @@ function signUp() {
         alert(cred.user.email + " has signed up")
     })
 }
+
