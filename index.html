@@ -24,9 +24,11 @@
 
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
         <script>
-            uploadNotReady(){
-                alert("Upload feature not ready yet.");
-            }
+    const myButton = document.getElementById("chatsubmit");
+  myButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    alert("Upload feature not ready yet")
+  });
         </script>
 <!--
 
@@ -118,7 +120,7 @@ https://templatemo.com/tm-590-topic-listing
 
                                     <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Paste text here..." aria-label="Search">
 
-                                    <button type="submit" class="form-control">Submit</button>
+                                    <button type="submit" id="chatsubmit" class="form-control">Submit</button>
                                 </div>
                             </form>
                         </div>
