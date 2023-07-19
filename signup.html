@@ -129,7 +129,7 @@ https://templatemo.com/tm-590-topic-listing
                         </div>
 
                         <div class="col-lg-6 col-12">
-                            <form action="" method="post" class="custom-form contact-form" role="form">
+                            <form onsubmit="return signUp()" class="custom-form contact-form" role="form">
                                 <div class="row">
                                     <div class="col-12"> 
                                         <div class="form-floating">
@@ -268,7 +268,25 @@ createUserWithEmailAndPassword(auth, email, password)
     const errorMessage = error.message;
     // ..
   });
-  //onsubmit of sign 
+  //onsubmit of sign up button, call the createUserWithEmailAndPassword function with email and password as parameters
+    //if successful, redirect to login page
+    //else, display error message
+    function signUp() {
+        console.log("jhere")
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        window.location.href = "login.html";
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
+
+    return false; // prevent form submission
+  }
         </script>
 
     </body>
