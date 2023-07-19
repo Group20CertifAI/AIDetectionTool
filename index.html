@@ -23,14 +23,7 @@
         <link href="css/templatemo-topic-listing.css" rel="stylesheet">      
 
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-        <script>
-    const myButton = document.getElementById("chatsubmit");
-  myButton.addEventListener("click", function(event) {
-    event.preventDefault();
-    console.log("here")
-    alert("Upload feature not ready yet")
-  });
-        </script>
+
 <!--
 
 TemplateMo 590 topic listing
@@ -547,13 +540,13 @@ https://templatemo.com/tm-590-topic-listing
         <script src="js/jquery.sticky.js"></script>
         <script src="js/click-scroll.js"></script>
         <script src="js/custom.js"></script>
-
+        <script>
+            const myButton = document.getElementById("chatsubmit");
+          myButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            console.log("here")
+            alert("Upload feature is not ready yet, please try again later...")
+          });
+        </script>
     </body>
-
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-    <!--<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>-->
-    <!--<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>-->
-    <script src="config.js"></script>
-    
 </html>
