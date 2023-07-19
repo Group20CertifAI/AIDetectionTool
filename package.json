@@ -1,0 +1,24 @@
+{
+  "name": "aidetectiontool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KinggWan/AIDetectionTool.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KinggWan/AIDetectionTool/issues"
+  },
+  "homepage": "https://github.com/KinggWan/AIDetectionTool#readme",
+  "dependencies": {
+    "firebase": "^10.0.0",
+    "nodemon": "^3.0.1"
+  }
+}

@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>CertifAI</title>
+
+        <!-- CSS FILES -->        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+                        
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/templatemo-topic-listing.css" rel="stylesheet">      
+
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<!--
+
+TemplateMo 590 topic listing
+
+https://templatemo.com/tm-590-topic-listing
+
+-->
+    </head>
+    
+    <body id="top">
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <i class="bi-back"></i>
+                        <span>CertifAI</span>
+                    </a>
+
+                    <div class="d-lg-none ms-auto me-4">
+                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                    </div>
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_1">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_2">Use Cases</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_3">About CertifAI</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_4">FAQs</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_5">Contact</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="contact.html">Report Issue</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        
+                        <div class="d-none d-lg-block dropdown">
+                            <a class="navbar-icon bi-person smoothscroll nav-link " href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="login.html">Login</a></li>
+                                <li><a class="dropdown-item" href="login.html">Sign Up</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-8 col-12 mx-auto">
+                            <h1 class="text-white text-center">Know whats real and fake, Try CertifAI today!</h1>
+
+                            <h6 class="text-center">AI generated content detector to help keep you grounded in reality</h6>
+
+                            <form method="post" onsubmit="uploadNotReady()" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text bi-search" id="basic-addon1">
+                                        
+                                    </span>
+
+                                    <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Paste text here..." aria-label="Search">
+
+                                    <button type="submit" id="chatsubmit" class="form-control">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </section> 
+
+
+            <section class="featured-section">
+                <div class="container">
+                    <div class="row justify-content-center">
+
+                        <div class="col-lg-6 col-12 mb-4 mb-lg-0">
+                            <div class="custom-block bg-white shadow-lg">
+                                <a>
+                                    <div class="d-flex">
+                                        <div>
+                                            <h5 class="mb-2">Upload Images</h5>
+
+                                            <p class="mb-0">Upload images here to check for AI generated Content</p>
+                                            <div class="dropzone">
+                                                <span class="dropzone__prompt">Drop file here or click to upload</span>
+                                            </div>
+                                            <button id="imagebutton" class="btn custom-btn mt-2 mt-lg-3">Upload</button>
+                                        </div>
+
+                                    </div>
+   
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12 mb-lg-0">
+                            <div class="custom-block custom-block-overlay">
+                                <div class="d-flex flex-column h-100">
+                                    <img src="images/businesswoman-using-tablet-analysis.jpg" class="custom-block-image img-fluid" alt="">
+
+                                    <div class="custom-block-overlay-text d-flex">
+                                        <div>
+                                            <h5 class="text-white mb-2">Upload Audio</h5>
+
+                                            <p class="text-white">Upload Audio here to check for AI generated Content</p>
+
+                                            <button id="audiobutton" class="btn custom-btn mt-2 mt-lg-3">Upload</button>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Social Media Links -->
+                                    <!-- <div class="social-share d-flex">
+                                        <p class="text-white me-4">Share:</p>
+
+                                        <ul class="social-icon">
+                                            <li class="social-icon-item">
+                                                <a href="#" class="social-icon-link bi-twitter"></a>
+                                            </li>
+
+                                            <li class="social-icon-item">
+                                                <a href="#" class="social-icon-link bi-facebook"></a>
+                                            </li>
+
+                                            <li class="social-icon-item">
+                                                <a href="#" class="social-icon-link bi-pinterest"></a>
+                                            </li>
+                                        </ul>
+
+                                        <a href="#" class="custom-icon bi-bookmark ms-auto"></a>
+                                    </div> -->
+
+                                    <div class="section-overlay"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="explore-section section-padding" id="section_2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h2 class="mb-4">Use Cases: Who Benefits from CertifAI</h1>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">Teachers</button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="marketing-tab" data-bs-toggle="tab" data-bs-target="#marketing-tab-pane" type="button" role="tab" aria-controls="marketing-tab-pane" aria-selected="false">Artists</button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane" type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Businesses</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a>
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Plagiarism Detection</h5>
+
+                                                            <p class="mb-0">Combating the Rising Tide of Plagiarism in Schools: Empowering Educators with CertifAI to Safeguard Academic Integrity</p>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="marketing-tab-pane" role="tabpanel" aria-labelledby="marketing-tab" tabindex="0">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-0">
+                                                <div class="custom-block bg-white shadow-lg">
+                                                    <a>
+                                                        <div class="d-flex">
+                                                            <div>
+                                                                <h5 class="mb-2">Plagiarism Detection</h5>
+
+                                                                <p class="mb-0">Artists can use CertifAI to identify any instances of plagiarism in their work or ensure that their own creations are not being copied without permission. This helps protect their intellectual property rights and maintain the originality and uniqueness of their artistic creations.</p>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <img src="images/topics/undraw_online_ad_re_ol62.png" class="custom-block-image img-fluid" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-0">
+                                                <div class="custom-block bg-white shadow-lg">
+                                                    <a>
+                                                        <div class="d-flex">
+                                                            <div>
+                                                                <h5 class="mb-2">Copyright Protection</h5>
+
+                                                                <p class="mb-0">CertifAI can assist artists in monitoring and detecting unauthorized use or reproduction of their copyrighted work across various platforms. By identifying instances of infringement, artists can take appropriate legal action to protect their creative works and seek proper attribution or compensation.</p>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <img src="images/topics/undraw_Group_video_re_btu7.png" class="custom-block-image img-fluid" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                  </div>
+
+                                <div class="tab-pane fade" id="finance-tab-pane" role="tabpanel" aria-labelledby="finance-tab" tabindex="0">   <div class="row">
+                                        <div class="col-lg-8 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a>
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Fraud Detection</h5>
+
+                                                            <p class="mb-0">CertifAI can identify patterns or anomalies in text, audio, or photo data to detect fraudulent activities, such as fake reviews, fraudulent claims, or suspicious content. By flagging suspicious content, the tool helps businesses minimize financial losses and maintain trust among their customers.</p>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <img src="images/topics/undraw_Finance_re_gnv2.png" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="timeline-section section-padding" id="section_3">
+                <div class="section-overlay"></div>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h2 class="text-white mb-4">About Us</h1>
+                        </div>
+
+                        <div class="col-lg-10 col-12 mx-auto">
+                            <div class="timeline-container">
+                                <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
+                                    <div class="list-progress">
+                                        <div class="inner"></div>
+                                    </div>
+
+                                    <li>
+                                        <h4 class="text-white mb-3">Experience the Power of CertifAI: Effortlessly Upload and Swiftly Verify Text, Audio, and Image Files</h4>
+
+                                        <p class="text-white">With CertifAI, you can seamlessly upload a variety of file formats, including text, audio, and images, and enjoy rapid file verification with lightning-fast processing times.</p>
+
+                                        <div class="icon-holder">
+                                          <i class="bi-search"></i>
+                                        </div>
+                                    </li>
+                                    
+                                    <li>
+                                        <h4 class="text-white mb-3">Discover the Future of Content Analysis: Scan Uploaded Files for AI-Generated Content</h4>
+
+                                        <p class="text-white">Harnessing the cutting-edge capabilities of CertifAI, our advanced system enables you to delve deeper into your uploaded files, detecting and examining AI-generated content with unparalleled precision. Uncover the insights hidden within text, audio, and image files, and gain valuable understanding of the AI elements present in your content.</p>
+
+                                        <div class="icon-holder">
+                                          <i class="bi-bookmark"></i>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <h4 class="text-white mb-3">Unveiling Truth in a Digital Era: Distinguish the Real from the Fake</h4>
+
+                                        <p class="text-white">In an era of rampant misinformation, CertifAI empowers you to navigate through the digital landscape with confidence. Our comprehensive solution equips you with the tools to discern between genuine and fabricated content, providing invaluable insights into the authenticity of text, audio, and image files. Stay informed, make informed decisions, and foster trust in an increasingly complex online world.</p>
+
+                                        <div class="icon-holder">
+                                          <i class="bi-book"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="faq-section section-padding" id="section_4">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12">
+                            <h2 class="mb-4">Frequently Asked Questions</h2>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-lg-5 col-12">
+                            <img src="images/faq_graphic.jpg" class="img-fluid" alt="FAQs">
+                        </div>
+
+                        <div class="col-lg-6 col-12 m-auto">
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Is my data saved?
+                                        </button>
+                                    </h2>
+
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            At CertifAI, we prioritize the confidentiality and protection of your information. We want to assure you that we do not store or share your data in any form. Your privacy is of utmost importance to us, and our commitment to data security means that your valuable content remains completely safeguarded throughout the verification process. Trust in CertifAI for a secure and reliable experience without any compromise on your privacy.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Can I upload videos?
+                                    </button>
+                                    </h2>
+
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            At CertifAI, we are continuously evolving to meet your needs. While currently limited to text, audio, and image files, we are excited to announce that our dedicated team is actively working on integrating video upload functionality. Stay tuned for future updates as we strive to enhance your experience and offer comprehensive content analysis across multiple media formats.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Do I need to pay to use it?
+                                    </button>
+                                    </h2>
+
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Elevate your CertifAI experience by becoming a subscriber and gain access to a host of exclusive benefits. As a valued subscriber, you'll receive additional credits that can be utilized to perform more verifications, empowering you with increased flexibility and usage capacity. Maximize the potential of CertifAI and enjoy the advantages reserved for our esteemed subscribers.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="contact-section section-padding section-bg" id="section_5">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12 text-center">
+                            <h2 class="mb-5">Get in touch</h2>
+                        </div>
+
+
+
+                        <div class="col-lg-12 col-12 mb-3 mb-lg- mb-md-0 ms-auto">
+                            <h4 class="mb-3">Head office</h4>
+
+                            <p>Florida Atlantic University, Boca Raton, Florida 33433</p>
+
+
+
+                            <p class="d-flex align-items-center mb-1">
+                                <span class="me-2">Phone</span>
+
+                                <a href="tel: 111-111-1111" class="site-footer-link">
+                                    111-111-1111
+                                </a>
+                            </p>
+
+                            <p class="d-flex align-items-center">
+                                <span class="me-2">Email</span>
+
+                                <a href="mailto:CertifAI20@gmail.com" class="site-footer-link">
+                                    CertifAI20@gmail.com
+                                </a>
+                            </p>
+                        </div>
+
+                       
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+<footer class="site-footer section-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-12 mb-4 pb-2">
+                        <a class="navbar-brand mb-2" href="index.html">
+                            <i class="bi-back"></i>
+                            <span>CertifAI</span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <h6 class="site-footer-title mb-3">Resources</h6>
+
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Home</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_3" class="site-footer-link">How it works</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_4" class="site-footer-link">FAQs</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#section_5" class="site-footer-link">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
+                        <h6 class="site-footer-title mb-3">Information</h6>
+
+                        <p class="text-white d-flex mb-1">
+                            <a href="tel: 111-111-1111" class="site-footer-link">
+                                111-111-1111
+                            </a>
+                        </p>
+
+                        <p class="text-white d-flex">
+                            <a href="mailto:CertifAI20@gmail.com" class="site-footer-link">
+                                CertifAI20@gmail.com
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
+                        
+                        <p class="copyright-text mt-lg-5 mt-4">Copyright © 2023 CertifAI. All rights reserved.
+                        <br><br>Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/click-scroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script>
+            const myButton = document.getElementById("chatsubmit");
+          myButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            console.log("here")
+            alert("Upload feature is not ready yet, please try again later...")
+          });
+          const audiobttn = document.getElementById("imagebutton");
+          audiobttn.addEventListener("click", function(event) {
+            event.preventDefault();
+            console.log("here")
+            alert("Upload feature is not ready yet, please try again later...")
+          });
+          const imagebttn = document.getElementById("audiobutton");
+          imagebttn.addEventListener("click", function(event) {
+            event.preventDefault();
+            console.log("here")
+            alert("Upload feature is not ready yet, please try again later...")
+          });
+        </script>
+    </body>
+</html>
