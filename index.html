@@ -589,7 +589,7 @@ https://templatemo.com/tm-590-topic-listing
 <script>
                document.getElementById('file-upload-audio').addEventListener('change', function(event) {
                    const fileInput = event.target;
-                   const file = fileInput.files[0];
+                   const file = fileInput
    
                    if (file) {
                        // Get the file extension
@@ -603,6 +603,10 @@ https://templatemo.com/tm-590-topic-listing
                            alert('Incorrect file type. Please upload an image file (mp3, m4p, alac, wav, aiff, flac, aac, wma).');
                            // Clear the file input to allow the user to choose another file
                            fileInput.value = '';
+                           const fileNameDisplay = document.getElementById('fileNameDisplay');
+                           const fileName = document.getElementById('fileName');
+                           fileName.textContent = file.name;
+                           fileNameDisplay.style.display = 'none';
                        }
                        else{
                            // Upload is successful if the file type is allowed
@@ -647,7 +651,7 @@ https://templatemo.com/tm-590-topic-listing
                    <script>
                     function showFileName(inputId) {
                     const fileUploadInput = document.getElementById(inputId);
-                    const fileNameDisplay = document.getElementById(`file-name-display-${inputId}`);
+                    const fileNameDisplay = document.getElementById(`file-upload-${inputId}`);
                     
                     if (fileUploadInput && fileUploadInput.files.length > 0) {
                         const file = fileUploadInput.files[0];
