@@ -126,7 +126,7 @@ https://templatemo.com/tm-590-topic-listing
                         </div>
 
                         <div class="col-lg-6 col-12">
-                            <form onsubmit="signUp()" class="custom-form contact-form" role="form">
+                            <form onsubmit="return signUp()" class="custom-form contact-form" role="form">
                                 <div class="row">
                                     <div class="col-12"> 
                                         <div class="form-floating">
@@ -136,7 +136,7 @@ https://templatemo.com/tm-590-topic-listing
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating close">
-                                            <input type="password" id="password" placeholder="password" class="form-control" required="">
+                                            <input type="password" id="password" placeholder="Password" class="form-control" required="">
                                             <label for="floatingInput">Password</label> 
                                         </div>
                                     </div>
@@ -226,52 +226,72 @@ https://templatemo.com/tm-590-topic-listing
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/jquery.sticky.js"></script>
         <script src="js/custom.js"></script>
-        <!-- Include Firebase scripts first -->
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+        <script src="config.js"></script>
+        <script>
 
-<!-- include config.js -->
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCmbhXwRTMiyXl_y1wrPnOY-mipeAMi8T0",
+    authDomain: "certifai-8afc6.firebaseapp.com",
+    projectId: "certifai-8afc6",
+    storageBucket: "certifai-8afc6.appspot.com",
+    messagingSenderId: "1073534950411",
+    appId: "1:1073534950411:web:400de3999bd7730c353b0e",
+    measurementId: "G-BXVF3JMY0N"
+  };
 
-<!-- initialize Firebase and set up signUp function -->
-<script>
-    //  web app's Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyCmbhXwRTMiyXl_y1wrPnOY-mipeAMi8T0",
-        authDomain: "certifai-8afc6.firebaseapp.com",
-        projectId: "certifai-8afc6",
-        storageBucket: "certifai-8afc6.appspot.com",
-        messagingSenderId: "1073534950411",
-        appId: "1:1073534950411:web:400de3999bd7730c353b0e",
-        measurementId: "G-BXVF3JMY0N"
-    };
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
+            import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-    function signUp(event) {
-        event.preventDefault(); // Prevent the default form submission
+const auth = getAuth();
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+  //onsubmit of sign up button, call the createUserWithEmailAndPassword function with email and password as parameters
+    //if successful, redirect to login page
+    //else, display error message
+    function signUp() {
+        console.log("jhere")
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        window.location.href = "login.html";
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
 
-        auth.createUserWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                window.location.href = "login.html";
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                alert(errorMessage);
-            });
-    }
+    return false; // prevent form submission
+  }
+        </script>
 
-    const submitBtn = document.getElementById('sign-up');
-    submitBtn.addEventListener('click', signUp);
-</script>
-         
-    </body>   
+    </body>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <!--<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>-->
+    <!--<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>-->
+    <script src="config.js"></script>
+   
 </html>
