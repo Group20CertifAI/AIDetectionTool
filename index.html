@@ -556,40 +556,9 @@ https://templatemo.com/tm-590-topic-listing
         <script src="public/js/jquery.sticky.js"></script>
         <script src="public/js/click-scroll.js"></script>
         <script src="public/js/custom.js"></script>
-        <script>
-            function showFileName(inputId) {
-            const fileUploadInput = document.getElementById(inputId);
-            const fileNameDisplay = document.getElementById(`file-name-display-${inputId}`);
-            
-            if (fileUploadInput && fileUploadInput.files.length > 0) {
-                const file = fileUploadInput.files[0];
-                fileNameDisplay.textContent = file.name;
-            } else {
-                fileNameDisplay.textContent = "No file selected";
-            }
-        }
-            const textbttn = document.getElementById("chatsubmit");
-             audiobttn.addEventListener("click", function(event) {
-               event.preventDefault();
-               console.log("here")
-               alert("Upload feature is not ready yet, please try again later...")
-             });
-          const audiobttn = document.getElementById("imagebutton");
-          audiobttn.addEventListener("click", function(event) {
-            event.preventDefault();
-            console.log("here")
-            alert("Upload feature is not ready yet, please try again later...")
-          });
-          const imagebttn = document.getElementById("audiobutton");
-          imagebttn.addEventListener("click", function(event) {
-            event.preventDefault();
-            console.log("here")
-            alert("Upload feature is not ready yet, please try again later...")
-          });
 
-
-
-               document.getElementById('file-upload').addEventListener('change', function(event) {
+<script>
+               document.getElementById('file-upload-image').addEventListener('change', function(event) {
                    const fileInput = event.target;
                    const file = fileInput.files[0];
    
@@ -616,8 +585,9 @@ https://templatemo.com/tm-590-topic-listing
                        }
                    }
                });
-
-               document.getElementById('audio-file-upload').addEventListener('change', function(event) {
+               </script>
+<script>
+               document.getElementById('file-upload-audio').addEventListener('change', function(event) {
                    const fileInput = event.target;
                    const file = fileInput.files[0];
    
@@ -644,8 +614,9 @@ https://templatemo.com/tm-590-topic-listing
                        }
                    }
                });
-
-               document.getElementById('text-file-upload').addEventListener('change', function(event) {
+               </script>
+<script>
+               document.getElementById('file-upload-text').addEventListener('change', function(event) {
                    const fileInput = event.target;
                    const file = fileInput.files[0];
    
@@ -673,5 +644,37 @@ https://templatemo.com/tm-590-topic-listing
                    }
                });
            </script>
+                   <script>
+                    function showFileName(inputId) {
+                    const fileUploadInput = document.getElementById(inputId);
+                    const fileNameDisplay = document.getElementById(`file-name-display-${inputId}`);
+                    
+                    if (fileUploadInput && fileUploadInput.files.length > 0) {
+                        const file = fileUploadInput.files[0];
+                        fileNameDisplay.textContent = file.name;
+                    } else {
+                        fileNameDisplay.textContent = "No file selected";
+                    }
+                }
+                    const textbttn = document.getElementById("chatsubmit");
+                     audiobttn.addEventListener("click", function(event) {
+                       event.preventDefault();
+                       console.log("here")
+                       alert("Upload feature is not ready yet, please try again later...")
+                     });
+                  const audiobttn = document.getElementById("imagebutton");
+                  audiobttn.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    console.log("here")
+                    alert("Upload feature is not ready yet, please try again later...")
+                  });
+                  const imagebttn = document.getElementById("audiobutton");
+                  imagebttn.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    console.log("here")
+                    alert("Upload feature is not ready yet, please try again later...")
+                  });
+        
+        </script>
     </body>
 </html>
