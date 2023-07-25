@@ -106,21 +106,23 @@ https://templatemo.com/tm-590-topic-listing
 
                             <h6 class="text-center">AI generated content detector to help keep you grounded in reality</h6>
 
-                            <form method="post" onsubmit="uploadNotReady()" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                            <form method="post" action="uploadfile.php" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
                                 <div class="input-group input-group-lg">
                                     <span class="input-group-text bi-search" id="basic-addon1">
                                         
                                     </span>
 
-                                    <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Paste text here..." aria-label="Search">
+                                    <input name="sentence" type="search" class="form-control" id="sentence" placeholder="Paste text here..." aria-label="Search">
                    
                                     <form enctype="multipart/form-data" action="uploadfile.php" method="POST">  
                                         <label for="text-file-upload" class="btn custom-btn mt-2 ">
                                             Upload
                                         </label>
-                                        <input id="text-file-upload" type="file"/>
+                                        <input id="file-upload-text" type="file" onchange="showFileName('file-upload-text')"/>
+                                        <span id="file-name"></span>
                                         <button type="submit" id="chatsubmit" class="btn custom-btn mt-2 ">Submit</button>
                                     </form>
+                                    <div id="file-name-display-file-upload-text"></div>
                                 </div>
                             </form>
                         </div>
@@ -143,11 +145,12 @@ https://templatemo.com/tm-590-topic-listing
 
                                             <p class="mb-0">Upload or drop images here to check for AI generated Content</p>
                                             <form enctype="multipart/form-data" action="uploadfile.php" method="POST">  
-                                                <label for="file-upload" class="btn custom-btn mt-2 mt-lg-3">
+                                                <label for="file-upload-image" class="btn custom-btn mt-2 mt-lg-3">
                                                     Upload
                                                 </label>
-                                                <input id="file-upload" type="file"/>
+                                                <input id="file-upload-image" type="file" onchange="showFileName('file-upload-image')"/>
                                             </form>
+                                            <div id="file-name-display-file-upload-image"></div>
                                         </div>
 
                                     </div>
@@ -167,11 +170,12 @@ https://templatemo.com/tm-590-topic-listing
 
                                             <p class="text-white">Upload or drop Audio here to check for AI generated Content</p>
                                             <form enctype="multipart/form-data" action="uploadfile.php" method="POST">
-                                                <label for="audio-file-upload" class="btn custom-btn mt-2 mt-lg-3">
+                                                <label for="file-upload-audio" class="btn custom-btn mt-2 mt-lg-3">
                                                     Upload
                                                 </label>
-                                                <input id="audio-file-upload" type="file"/>
+                                                <input id="file-upload-audio" type="file" onchange="showFileName('file-upload-audio')"/>
                                             </form>
+                                            <div id="file-name-display-file-upload-audio"></div>
                                         </div>
 
                                     </div>
@@ -552,9 +556,9 @@ https://templatemo.com/tm-590-topic-listing
         <script src="public/js/jquery.sticky.js"></script>
         <script src="public/js/click-scroll.js"></script>
         <script src="public/js/custom.js"></script>
-        <script>
-            const myButton = document.getElementById("chatsubmit");
-          myButton.addEventListener("click", function(event) {
+        <script>  
+         const textbttn = document.getElementById("chatsubmit");
+          audiobttn.addEventListener("click", function(event) {
             event.preventDefault();
             console.log("here")
             alert("Upload feature is not ready yet, please try again later...")
