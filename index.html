@@ -557,124 +557,60 @@ https://templatemo.com/tm-590-topic-listing
         <script src="public/js/click-scroll.js"></script>
         <script src="public/js/custom.js"></script>
 
-<script>
-               document.getElementById('file-upload-image').addEventListener('change', function(event) {
-                   const fileInput = event.target;
-                   const file = fileInput.files[0];
-   
-                   if (file) {
-                       // Get the file extension
-                       const fileExtension = file.name.split('.').pop().toLowerCase();
-   
-                       // List of allowed file types (you can add more if needed)
-                       const allowedFileTypes = ['jpg', 'jpeg', 'png'];
-   
-                       // Check if the file type is allowed
-                       if (!allowedFileTypes.includes(fileExtension)) {
-                           alert('Incorrect file type. Please upload an image file (jpg, jpeg, png).');
-                           // Clear the file input to allow the user to choose another file
-                           fileInput.value = '';
-                       }
-                       else{
-                           // Upload is successful if the file type is allowed
-                           const fileNameDisplay = document.getElementById('fileNameDisplay');
-                           const fileName = document.getElementById('fileName');
-                           fileName.textContent = file.name;
-                           fileNameDisplay.style.display = 'block';
-                           alert('Upload successful!');
-                       }
-                   }
-               });
-               </script>
-<script>
-               document.getElementById('file-upload-audio').addEventListener('change', function(event) {
-                   const fileInput = event.target;
-                   const file = fileInput.files[0];
-   
-                   if (file) {
-                       // Get the file extension
-                       const fileExtension = file.name.split('.').pop().toLowerCase();
-   
-                       // List of allowed file types (you can add more if needed)
-                       const allowedFileTypes = ['mp3', 'm4p', 'alac', 'wav', 'aiff', 'flac', 'aac', 'wma'];
-   
-                       // Check if the file type is allowed
-                       if (!allowedFileTypes.includes(fileExtension)) {
-                           alert('Incorrect file type. Please upload an image file (mp3, m4p, alac, wav, aiff, flac, aac, wma).');
-                           // Clear the file input to allow the user to choose another file
-                           fileInput.value = '';
-                       }
-                       else{
-                           // Upload is successful if the file type is allowed
-                           const fileNameDisplay = document.getElementById('fileNameDisplay');
-                           const fileName = document.getElementById('fileName');
-                           fileName.textContent = file.name;
-                           fileNameDisplay.style.display = 'block';
-                           alert('Upload successful!');
-                       }
-                   }
-               });
-               </script>
-<script>
-               document.getElementById('file-upload-text').addEventListener('change', function(event) {
-                   const fileInput = event.target;
-                   const file = fileInput.files[0];
-   
-                   if (file) {
-                       // Get the file extension
-                       const fileExtension = file.name.split('.').pop().toLowerCase();
-   
-                       // List of allowed file types (you can add more if needed)
-                       const allowedFileTypes = ['txt', 'doc', 'docx'];
-   
-                       // Check if the file type is allowed
-                       if (!allowedFileTypes.includes(fileExtension)) {
-                           alert('Incorrect file type. Please upload an image file (txt, doc, docx).');
-                           // Clear the file input to allow the user to choose another file
-                           fileInput.value = '';
-                       }
-                       else{
-                           // Upload is successful if the file type is allowed
-                           const fileNameDisplay = document.getElementById('fileNameDisplay');
-                           const fileName = document.getElementById('fileName');
-                           fileName.textContent = file.name;
-                           fileNameDisplay.style.display = 'block';
-                           alert('Upload successful!');
-                       }
-                   }
-               });
-           </script>
-                   <script>
-                    function showFileName(inputId) {
-                    const fileUploadInput = document.getElementById(inputId);
-                    const fileNameDisplay = document.getElementById(`file-name-display-${inputId}`);
-                    
-                    if (fileUploadInput && fileUploadInput.files.length > 0) {
-                        const file = fileUploadInput.files[0];
-                        fileNameDisplay.textContent = file.name;
-                    } else {
-                        fileNameDisplay.textContent = "No file selected";
-                    }
+        <script>
+            function showFileName(inputId, allowedFileTypes) {
+              const fileUploadInput = document.getElementById(inputId);
+              const fileNameDisplay = document.getElementById(`file-name-display-${inputId}`);
+          
+              if (fileUploadInput && fileUploadInput.files.length > 0) {
+                const file = fileUploadInput.files[0];
+                const fileExtension = file.name.split('.').pop().toLowerCase();
+          
+                if (!allowedFileTypes.includes(fileExtension)) {
+                  alert(`Incorrect file type. Please upload a file with one of the following extensions: ${allowedFileTypes.join(', ')}`);
+                  // Clear the file input to allow the user to choose another file
+                  fileUploadInput.value = '';
+                  fileNameDisplay.textContent = "No file selected";
+                } else {
+                  fileNameDisplay.textContent = file.name;
                 }
-                    const textbttn = document.getElementById("chatsubmit");
-                     audiobttn.addEventListener("click", function(event) {
-                       event.preventDefault();
-                       console.log("here")
-                       alert("Upload feature is not ready yet, please try again later...")
-                     });
-                  const audiobttn = document.getElementById("imagebutton");
-                  audiobttn.addEventListener("click", function(event) {
-                    event.preventDefault();
-                    console.log("here")
-                    alert("Upload feature is not ready yet, please try again later...")
-                  });
-                  const imagebttn = document.getElementById("audiobutton");
-                  imagebttn.addEventListener("click", function(event) {
-                    event.preventDefault();
-                    console.log("here")
-                    alert("Upload feature is not ready yet, please try again later...")
-                  });
-        
-        </script>
+              } else {
+                fileNameDisplay.textContent = "No file selected";
+              }
+            }
+          
+            document.getElementById("file-upload-image").addEventListener("change", function (event) {
+              showFileName("file-upload-image", ["jpg", "jpeg", "png"]);
+            });
+          
+            document.getElementById("file-upload-audio").addEventListener("change", function (event) {
+              showFileName("file-upload-audio", ["mp3", "m4p", "alac", "wav", "aiff", "flac", "aac", "wma"]);
+            });
+          
+            document.getElementById("file-upload-text").addEventListener("change", function (event) {
+              showFileName("file-upload-text", ["txt", "doc", "docx"]);
+            });
+          
+            const textbttn = document.getElementById("chatsubmit");
+            textbttn.addEventListener("click", function (event) {
+              event.preventDefault();
+              console.log("here");
+              alert("Upload feature is not ready yet, please try again later...");
+            });
+          
+            const audiobttn = document.getElementById("audiobutton");
+            audiobttn.addEventListener("click", function (event) {
+              event.preventDefault();
+              console.log("here");
+              alert("Upload feature is not ready yet, please try again later...");
+            });
+          
+            const imagebttn = document.getElementById("imagebutton");
+            imagebttn.addEventListener("click", function (event) {
+              event.preventDefault();
+              console.log("here");
+              alert("Upload feature is not ready yet, please try again later...");
+            });
+          </script>
     </body>
 </html>
