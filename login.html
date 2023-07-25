@@ -24,9 +24,8 @@
 
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
-        <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
-
-        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 
         
 <!--
@@ -241,42 +240,45 @@ https://templatemo.com/tm-590-topic-listing
 
 
 <!-- initialize Firebase and set up signUp function -->
-    <script>
-        //  web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCmbhXwRTMiyXl_y1wrPnOY-mipeAMi8T0",
-            authDomain: "certifai-8afc6.firebaseapp.com",
-            projectId: "certifai-8afc6",
-            storageBucket: "certifai-8afc6.appspot.com",
-            messagingSenderId: "1073534950411",
-            appId: "1:1073534950411:web:400de3999bd7730c353b0e",
-            measurementId: "G-BXVF3JMY0N"
-        };
+<script>
+    //  web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyCmbhXwRTMiyXl_y1wrPnOY-mipeAMi8T0",
+        authDomain: "certifai-8afc6.firebaseapp.com",
+        projectId: "certifai-8afc6",
+        storageBucket: "certifai-8afc6.appspot.com",
+        messagingSenderId: "1073534950411",
+        appId: "1:1073534950411:web:400de3999bd7730c353b0e",
+        measurementId: "G-BXVF3JMY0N"
+    };
 
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
 
-        function logIn(event) {
-            event.preventDefault(); // Prevent the default form submission
+    // Log in function
+    function logIn(event) {
+        event.preventDefault(); // Prevent the default form submission
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-            auth.signInWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    // Signed in 
-                    const user = userCredential.user;
-                    window.location.href = "index.html";
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    alert(errorMessage);
-                });
-        }
-        const submitBtn = document.getElementById('login');
-        submitBtn.addEventListener('click', logIn);
-    </script>
+        auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Signed in 
+                var user = userCredential.user;
+                window.location.href = "/";
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert(errorMessage);
+            });
+    }
+
+    // Event Listener for Login Button
+    const submitBtn = document.getElementById('login');
+    submitBtn.addEventListener('click', logIn);
+</script>
     </body>
 </html>
