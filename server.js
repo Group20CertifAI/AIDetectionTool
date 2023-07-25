@@ -30,12 +30,12 @@ app.get('/index.html', (req, res) => {
         res.redirect('/');
     });
 
-app.get('/signup', (req, res) => {
+app.get('/signup.html', (req, res) => {
     res.sendFile(__dirname + '/signup.html');
 }
 );
 
-app.get('/login', (req, res) => {
+app.get('/login.html', (req, res) => {
     res.sendFile(__dirname + '/login.html');
 }
 );
