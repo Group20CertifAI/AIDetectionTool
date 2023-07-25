@@ -115,12 +115,14 @@ https://templatemo.com/tm-590-topic-listing
                                     <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Paste text here..." aria-label="Search">
                    
                                     <form enctype="multipart/form-data" action="uploadfile.php" method="POST">  
-                                        <label for="file-upload" class="btn custom-btn mt-2 ">
+                                        <label for="file-upload-text" class="btn custom-btn mt-2 ">
                                             Upload
                                         </label>
-                                        <input id="file-upload" type="file"/>
+                                        <input id="file-upload-text" type="file" onchange="showFileName('file-upload-text')"/>
+                                        <span id="file-name"></span>
                                         <button type="submit" id="chatsubmit" class="btn custom-btn mt-2 ">Submit</button>
                                     </form>
+                                    <div id="file-name-display-file-upload-text"></div>
                                 </div>
                             </form>
                         </div>
@@ -143,11 +145,12 @@ https://templatemo.com/tm-590-topic-listing
 
                                             <p class="mb-0">Upload or drop images here to check for AI generated Content</p>
                                             <form enctype="multipart/form-data" action="uploadfile.php" method="POST">  
-                                                <label for="file-upload" class="btn custom-btn mt-2 mt-lg-3">
+                                                <label for="file-upload-image" class="btn custom-btn mt-2 mt-lg-3">
                                                     Upload
                                                 </label>
-                                                <input id="file-upload" type="file"/>
+                                                <input id="file-upload-image" type="file" onchange="showFileName('file-upload-image')"/>
                                             </form>
+                                            <div id="file-name-display-file-upload-image"></div>
                                         </div>
 
                                     </div>
@@ -167,11 +170,12 @@ https://templatemo.com/tm-590-topic-listing
 
                                             <p class="text-white">Upload or drop Audio here to check for AI generated Content</p>
                                             <form enctype="multipart/form-data" action="uploadfile.php" method="POST">
-                                                <label for="file-upload" class="btn custom-btn mt-2 mt-lg-3">
+                                                <label for="file-upload-audio" class="btn custom-btn mt-2 mt-lg-3">
                                                     Upload
                                                 </label>
-                                                <input id="file-upload" type="file"/>
+                                                <input id="file-upload-audio" type="file" onchange="showFileName('file-upload-audio')"/>
                                             </form>
+                                            <div id="file-name-display-file-upload-audio"></div>
                                         </div>
 
                                     </div>
@@ -553,6 +557,17 @@ https://templatemo.com/tm-590-topic-listing
         <script src="public/js/click-scroll.js"></script>
         <script src="public/js/custom.js"></script>
         <script>
+            function showFileName(inputId) {
+            const fileUploadInput = document.getElementById(inputId);
+            const fileNameDisplay = document.getElementById(`file-name-display-${inputId}`);
+            
+            if (fileUploadInput && fileUploadInput.files.length > 0) {
+                const file = fileUploadInput.files[0];
+                fileNameDisplay.textContent = file.name;
+            } else {
+                fileNameDisplay.textContent = "No file selected";
+            }
+        }
             const myButton = document.getElementById("chatsubmit");
           myButton.addEventListener("click", function(event) {
             event.preventDefault();
