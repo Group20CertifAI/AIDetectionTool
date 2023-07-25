@@ -3,8 +3,10 @@ const express = require('express');
 const firebase = require('firebase-admin');
 const { spawn } = require('child_process');
 const serviceAccount = require('./serviceAccountKey.json');
+const bodyParser = require('body-parser');
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
 const port = process.env.PORT || 3000;
 
 firebase.initializeApp({
@@ -13,6 +15,7 @@ firebase.initializeApp({
 });
 
 const db = firebase.firestore();
+const auth = firebase.auth();
 
 // Start server
 app.listen(port, () => {
@@ -37,14 +40,17 @@ app.get('/signup.html', (req, res) => {
 );
 
 app.post('/signup', (req, res) => {
+    console.log(req.body);
     const email = req.body.email;
     const password = req.body.password;
 
-    
+
     //sign user up in firebase auth and create a directory for them in firestore and storage
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+    auth.createUserWithEmailAndPassword(email, password)
     .then(() => {
-        res.redirect('/home');
+        db.collection('users').doc(email).set({
+            email: email,
+        })
     })
     .catch((error) => {
       const errorMessage = error.message;
