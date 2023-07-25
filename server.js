@@ -23,21 +23,19 @@ app.use(express.static('public'))
 app.get('/', (req, res) => {
 // send index.html to start client side
     res.sendFile(__dirname + '/index.html');
-    // res.sendFile(__dirname + '/css/bootstrap.min.css');
-    // res.sendFile(__dirname + '/css/bootstrap-icons.css');
-    // res.sendFile(__dirname + '/js/bootstrap.bundle.min.js');
-    // res.sendFile(__dirname + '/js/jquery.min.js');
-    // res.sendFile(__dirname + '/js/jquery.sticky.js');
-    // res.sendFile(__dirname + '/js/custom.js');
-    // res.sendFile(__dirname + '/js/click-scroll.js');
 });
 
-app.get('/signup', (req, res) => {
+app.get('/index.html', (req, res) => {
+    // send index.html to start client side
+        res.redirect('/');
+    });
+
+app.get('/signup.html', (req, res) => {
     res.sendFile(__dirname + '/signup.html');
 }
 );
 
-app.get('/login', (req, res) => {
+app.get('/login.html', (req, res) => {
     res.sendFile(__dirname + '/login.html');
 }
 );
