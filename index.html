@@ -114,8 +114,13 @@ https://templatemo.com/tm-590-topic-listing
 
                                     <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Paste text here..." aria-label="Search">
                    
-                                    <button type="submit" id="chatsubmit" class="form-control">Submit</button>
-                                    <button type="submit" id="txtUpload" class="form-control">Upload</button>
+                                    <form enctype="multipart/form-data" action="uploadfile.php" method="POST">  
+                                        <label for="file-upload" class="btn custom-btn mt-2 ">
+                                            Upload
+                                        </label>
+                                        <input id="file-upload" type="file"/>
+                                        <button type="submit" id="chatsubmit" class="btn custom-btn mt-2 ">Submit</button>
+                                    </form>
                                 </div>
                             </form>
                         </div>
@@ -137,10 +142,7 @@ https://templatemo.com/tm-590-topic-listing
                                             <h5 class="mb-2">Upload Images</h5>
 
                                             <p class="mb-0">Upload or drop images here to check for AI generated Content</p>
-                                            <div class="dropzone">
-                                                <span class="dropzone__prompt"></span>
-                                            </div>
-                                            <form enctype="multipart/form-data" action="uploadfile.php" method="POST">
+                                            <form enctype="multipart/form-data" action="uploadfile.php" method="POST">  
                                                 <label for="file-upload" class="btn custom-btn mt-2 mt-lg-3">
                                                     Upload
                                                 </label>
@@ -163,9 +165,13 @@ https://templatemo.com/tm-590-topic-listing
                                         <div>
                                             <h5 class="text-white mb-2">Upload Audio</h5>
 
-                                            <p class="text-white">Upload Audio here to check for AI generated Content</p>
-
-                                            <button id="audiobutton" class="btn custom-btn mt-2 mt-lg-3">Upload</button>
+                                            <p class="text-white">Upload or drop Audio here to check for AI generated Content</p>
+                                            <form enctype="multipart/form-data" action="uploadfile.php" method="POST">
+                                                <label for="file-upload" class="btn custom-btn mt-2 mt-lg-3">
+                                                    Upload
+                                                </label>
+                                                <input id="file-upload" type="file"/>
+                                            </form>
                                         </div>
 
                                     </div>
@@ -565,32 +571,6 @@ https://templatemo.com/tm-590-topic-listing
             console.log("here")
             alert("Upload feature is not ready yet, please try again later...")
           });
-        </script>
-
-        <script>
-            document.getElementById('file-upload').addEventListener('change', function(event) {
-                const fileInput = event.target;
-                const file = fileInput.files[0];
-
-                if (file) {
-                    // Get the file extension
-                    const fileExtension = file.name.split('.').pop().toLowerCase();
-
-                    // List of allowed file types (you can add more if needed)
-                    const allowedFileTypes = ['jpg', 'jpeg', 'png'];
-
-                    // Check if the file type is allowed
-                    if (!allowedFileTypes.includes(fileExtension)) {
-                        alert('Incorrect file type. Please upload an image file (jpg, jpeg, png).');
-                        // Clear the file input to allow the user to choose another file
-                        fileInput.value = '';
-                    }
-                    else{
-                        // Upload is successful if the file type is allowed
-                        alert('Upload successful!');
-                    }
-                }
-            });
         </script>
     </body>
 </html>
