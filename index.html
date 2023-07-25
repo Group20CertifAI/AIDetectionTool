@@ -115,11 +115,18 @@ https://templatemo.com/tm-590-topic-listing
                                     <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Paste text here..." aria-label="Search">
                    
                                     <form enctype="multipart/form-data" action="uploadfile.php" method="POST">  
+<<<<<<< HEAD
                                         <label for="file-upload-text" class="btn custom-btn mt-2 ">
                                             Upload
                                         </label>
                                         <input id="file-upload-text" type="file" onchange="showFileName('file-upload-text')"/>
                                         <span id="file-name"></span>
+=======
+                                        <label for="text-file-upload" class="btn custom-btn mt-2 ">
+                                            Upload
+                                        </label>
+                                        <input id="text-file-upload" type="file"/>
+>>>>>>> 1887688bd2f795344b80a3e77421d4afdc263dea
                                         <button type="submit" id="chatsubmit" class="btn custom-btn mt-2 ">Submit</button>
                                     </form>
                                     <div id="file-name-display-file-upload-text"></div>
@@ -170,10 +177,17 @@ https://templatemo.com/tm-590-topic-listing
 
                                             <p class="text-white">Upload or drop Audio here to check for AI generated Content</p>
                                             <form enctype="multipart/form-data" action="uploadfile.php" method="POST">
+<<<<<<< HEAD
                                                 <label for="file-upload-audio" class="btn custom-btn mt-2 mt-lg-3">
                                                     Upload
                                                 </label>
                                                 <input id="file-upload-audio" type="file" onchange="showFileName('file-upload-audio')"/>
+=======
+                                                <label for="audio-file-upload" class="btn custom-btn mt-2 mt-lg-3">
+                                                    Upload
+                                                </label>
+                                                <input id="audio-file-upload" type="file"/>
+>>>>>>> 1887688bd2f795344b80a3e77421d4afdc263dea
                                             </form>
                                             <div id="file-name-display-file-upload-audio"></div>
                                         </div>
@@ -586,6 +600,93 @@ https://templatemo.com/tm-590-topic-listing
             console.log("here")
             alert("Upload feature is not ready yet, please try again later...")
           });
+        </script>
+        <script>
+            document.getElementById('file-upload').addEventListener('change', function(event) {
+                const fileInput = event.target;
+                const file = fileInput.files[0];
+
+                if (file) {
+                    // Get the file extension
+                    const fileExtension = file.name.split('.').pop().toLowerCase();
+
+                    // List of allowed file types (you can add more if needed)
+                    const allowedFileTypes = ['jpg', 'jpeg', 'png'];
+
+                    // Check if the file type is allowed
+                    if (!allowedFileTypes.includes(fileExtension)) {
+                        alert('Incorrect file type. Please upload an image file (jpg, jpeg, png).');
+                        // Clear the file input to allow the user to choose another file
+                        fileInput.value = '';
+                    }
+                    else{
+                        // Upload is successful if the file type is allowed
+                        const fileNameDisplay = document.getElementById('fileNameDisplay');
+                        const fileName = document.getElementById('fileName');
+                        fileName.textContent = file.name;
+                        fileNameDisplay.style.display = 'block';
+                        alert('Upload successful!');
+                    }
+                }
+            });
+        </script>
+        <script>
+            document.getElementById('audio-file-upload').addEventListener('change', function(event) {
+                const fileInput = event.target;
+                const file = fileInput.files[0];
+
+                if (file) {
+                    // Get the file extension
+                    const fileExtension = file.name.split('.').pop().toLowerCase();
+
+                    // List of allowed file types (you can add more if needed)
+                    const allowedFileTypes = ['mp3', 'm4p', 'alac', 'wav', 'aiff', 'flac', 'aac', 'wma'];
+
+                    // Check if the file type is allowed
+                    if (!allowedFileTypes.includes(fileExtension)) {
+                        alert('Incorrect file type. Please upload an image file (mp3, m4p, alac, wav, aiff, flac, aac, wma).');
+                        // Clear the file input to allow the user to choose another file
+                        fileInput.value = '';
+                    }
+                    else{
+                        // Upload is successful if the file type is allowed
+                        const fileNameDisplay = document.getElementById('fileNameDisplay');
+                        const fileName = document.getElementById('fileName');
+                        fileName.textContent = file.name;
+                        fileNameDisplay.style.display = 'block';
+                        alert('Upload successful!');
+                    }
+                }
+            });
+        </script>
+        <script>
+            document.getElementById('text-file-upload').addEventListener('change', function(event) {
+                const fileInput = event.target;
+                const file = fileInput.files[0];
+
+                if (file) {
+                    // Get the file extension
+                    const fileExtension = file.name.split('.').pop().toLowerCase();
+
+                    // List of allowed file types (you can add more if needed)
+                    const allowedFileTypes = ['txt', 'doc', 'docx'];
+
+                    // Check if the file type is allowed
+                    if (!allowedFileTypes.includes(fileExtension)) {
+                        alert('Incorrect file type. Please upload an image file (txt, doc, docx).');
+                        // Clear the file input to allow the user to choose another file
+                        fileInput.value = '';
+                    }
+                    else{
+                        // Upload is successful if the file type is allowed
+                        const fileNameDisplay = document.getElementById('fileNameDisplay');
+                        const fileName = document.getElementById('fileName');
+                        fileName.textContent = file.name;
+                        fileNameDisplay.style.display = 'block';
+                        alert('Upload successful!');
+                    }
+                }
+            });
         </script>
     </body>
 </html>

@@ -1,21 +1,20 @@
 require('dotenv').config();
 const express = require('express');
-const firebase = require('firebase-admin');
-const { spawn } = require('child_process');
-const serviceAccount = require('./serviceAccountKey.json');
+const admin = require('firebase-admin');
 const bodyParser = require('body-parser');
+const serviceAccount = require('./serviceAccountKey.json');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 const port = process.env.PORT || 3000;
 
-firebase.initializeApp({
-    credential: firebase.credential.cert(serviceAccount),
+const fireadmin = admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
     databaseURL: process.env.FIREBASE_DATABASE_URL
 });
 
-const db = firebase.firestore();
-const auth = firebase.auth();
+const db = admin.firestore();
 
 // Start server
 app.listen(port, () => {
@@ -25,60 +24,60 @@ app.listen(port, () => {
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-// send index.html to start client side
     res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/index.html', (req, res) => {
-    // send index.html to start client side
-        res.redirect('/');
-    });
-
 app.get('/signup.html', (req, res) => {
     res.sendFile(__dirname + '/signup.html');
-}
-);
+});
 
 app.post('/signup', (req, res) => {
-    console.log(req.body);
     const email = req.body.email;
     const password = req.body.password;
-
-
-    //sign user up in firebase auth and create a directory for them in firestore and storage
-    auth.createUserWithEmailAndPassword(email, password)
-    .then(() => {
-        db.collection('users').doc(email).set({
+    
+    admin.auth().createUser({
+        email: email,
+        password: password,
+        disabled: false
+    })
+    .then(userRecord => {
+        console.log('Successfully created new user:', userRecord.uid);
+        db.collection('users').doc(userRecord.uid).set({
             email: email,
+            created: new Date().toISOString()
+        })
+        .then(() => {
+            console.log('User added to Firestore');
+            res.status(200).send('Successfully created new user and added to Firestore: ' + userRecord.uid);
+        })
+        .catch((error) => {
+            console.log('Error adding user to Firestore: ', error);
+            res.status(400).send('Error adding user to Firestore: ' + error);
         })
     })
     .catch((error) => {
-      const errorMessage = error.message;
-      alert(errorMessage);
+        console.log('Error creating new user:', error);
+        res.status(400).send('Error creating new user: ' + error);
     });
-}
-);
-
+});
 
 app.get('/login.html', (req, res) => {
     res.sendFile(__dirname + '/login.html');
-}
-);
+});
 
 app.post('/logout', (req, res) => {
     res.send('Logout');
-}
-);
+});
 
 app.post('/forgot-password', (req, res) => {
     res.send('Forgot Password');
-}
-);
+});
 
 app.post('/reset-password', (req, res) => {
     res.send('Reset Password');
-}
-);
+});
+
+
 
 //home page
 app.get('/home', (req, res) => {
