@@ -36,6 +36,24 @@ app.get('/signup.html', (req, res) => {
 }
 );
 
+app.post('/signup', (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    
+    //sign user up in firebase auth and create a directory for them in firestore and storage
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(() => {
+        res.redirect('/home');
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      alert(errorMessage);
+    });
+}
+);
+
+
 app.get('/login.html', (req, res) => {
     res.sendFile(__dirname + '/login.html');
 }
