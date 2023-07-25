@@ -24,64 +24,64 @@ app.get('/', (req, res) => {
 });
 
 app.get('/signup', (req, res) => {
-    res.send('Signup');
+    res.sendFile(__dirname + '/signup.html');
 }
 );
 
 app.get('/login', (req, res) => {
-    res.send('Login');
+    res.sendFile(__dirname + '/login.html');
 }
 );
 
-app.get('/logout', (req, res) => {
+app.post('/logout', (req, res) => {
     res.send('Logout');
 }
 );
 
-app.get('/forgot-password', (req, res) => {
+app.post('/forgot-password', (req, res) => {
     res.send('Forgot Password');
 }
 );
 
-app.get('/reset-password', (req, res) => {
+app.post('/reset-password', (req, res) => {
     res.send('Reset Password');
 }
 );
 
 //home page
 app.get('/home', (req, res) => {
-    res.send('Home');
+    res.sendFile(__dirname + '/home.html');
 }
 );
 
 //profile page
 app.get('/profile', (req, res) => {
-    res.send('Profile');
+    res.sendFile(__dirname + '/profile.html');
 }
 );
 
 //settings page
 app.get('/settings', (req, res) => {
-    res.send('Settings');
+    res.sendFile(__dirname + '/settings.html');
 }
 );
 
 //text detection page
 app.get('/text-detection', (req, res) => {
-    res.send('Text Detection');
+    res.sendFile(__dirname + '/text-detection.html');
 }
 );
 
 //image detection page
 app.get('/image-detection', (req, res) => {
-    res.send('Image Detection');
+    res.sendFile(__dirname + '/image-detection.html');
 }
 );
 
 
 //audio detection page
 app.get('/audio-detection', (req, res) => {
-    res.send('Audio Detection');
+    res.sendFile(__dirname + '/audio-detection.html');
 }
 );
 
