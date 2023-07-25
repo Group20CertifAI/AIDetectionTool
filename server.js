@@ -74,20 +74,20 @@ app.get('/settings', (req, res) => {
 );
 
 //text detection page
-app.get('/text-detection', (req, res) => {
+app.post('/text-detection', (req, res) => {
     res.sendFile(__dirname + '/text-detection.html');
 }
 );
 
 //image detection page
-app.get('/image-detection', (req, res) => {
+app.post('/image-detection', (req, res) => {
     res.sendFile(__dirname + '/image-detection.html');
 }
 );
 
 
 //audio detection page
-app.get('/audio-detection', (req, res) => {
+app.post('/audio-detection', (req, res) => {
     res.sendFile(__dirname + '/audio-detection.html');
 }
 );
