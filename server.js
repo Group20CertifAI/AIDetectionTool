@@ -19,9 +19,9 @@ app.listen(port, () => {
 });
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
-}
-);
+// send index.html to start client side
+    res.sendFile(__dirname + '/index.html');
+});
 
 app.get('/signup', (req, res) => {
     res.send('Signup');
