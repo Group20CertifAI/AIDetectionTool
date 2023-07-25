@@ -106,16 +106,21 @@ https://templatemo.com/tm-590-topic-listing
 
                             <h6 class="text-center">AI generated content detector to help keep you grounded in reality</h6>
 
-                            <form method="post" onsubmit="uploadNotReady()" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                            <form method="post" action="/text-detection" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
                                 <div class="input-group input-group-lg">
                                     <span class="input-group-text bi-search" id="basic-addon1">
                                         
                                     </span>
 
-                                    <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Paste text here..." aria-label="Search">
+                                    <input name="sentence" type="search" class="form-control" id="sentence" placeholder="Paste text here..." aria-label="Search">
                    
+<<<<<<< HEAD
                                     <form enctype="multipart/form-data" action="uploadfile.php" method="POST">  
                                         <label for="file-upload-text" class="btn custom-btn mt-2 ">
+=======
+                                    <form enctype="multipart/form-data" action="/text-detection" method="POST">  
+                                        <label for="text-file-upload" class="btn custom-btn mt-2 ">
+>>>>>>> 3c7f789 (Added python files)
                                             Upload
                                         </label>
                                         <input id="file-upload-text" type="file" onchange="showFileName('file-upload-text')"/>
@@ -557,6 +562,7 @@ https://templatemo.com/tm-590-topic-listing
         <script src="public/js/click-scroll.js"></script>
         <script src="public/js/custom.js"></script>
         <script>
+<<<<<<< HEAD
             function showFileName(inputId) {
             const fileUploadInput = document.getElementById(inputId);
             const fileNameDisplay = document.getElementById(`file-name-display-${inputId}`);
@@ -574,6 +580,8 @@ https://templatemo.com/tm-590-topic-listing
             console.log("here")
             alert("Upload feature is not ready yet, please try again later...")
           });
+=======
+>>>>>>> 3c7f789 (Added python files)
           const audiobttn = document.getElementById("imagebutton");
           audiobttn.addEventListener("click", function(event) {
             event.preventDefault();

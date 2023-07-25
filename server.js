@@ -4,6 +4,8 @@ const admin = require('firebase-admin');
 const bodyParser = require('body-parser');
 const serviceAccount = require('./serviceAccountKey.json');
 
+const { spawn } = require('child_process');
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -99,7 +101,19 @@ app.get('/settings', (req, res) => {
 
 //text detection page
 app.post('/text-detection', (req, res) => {
-    res.sendFile(__dirname + '/text-detection.html');
+    //use python script to detect ai generated text
+    console.log(req.body.sentence);
+    const pythonProcess = spawn('python3', ['./GPTZero-main/infer.py', req.body.sentence]);
+    pythonProcess.stdout.on('data', (data) => {
+      res.send(data.toString());
+    });
+    pythonProcess.stderr.on('data', (data) => {
+      console.error(`stderr: ${data}`);
+    });
+    pythonProcess.on('close', (code) => {
+      console.log(`child process exited with code ${code}`);
+      res.redirect('/results');
+    });
 }
 );
 
