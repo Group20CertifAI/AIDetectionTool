@@ -135,7 +135,7 @@ app.post('/audio-detection', (req, res) => {
 }
 );
 
-app.get('results', (req, res) => {
+app.get('/results', (req, res) => {
     res.sendFile(__dirname + '/results.html');
 }
 );
