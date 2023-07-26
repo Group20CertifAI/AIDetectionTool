@@ -16,11 +16,11 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
                         
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="public/css/bootstrap.min.css" rel="stylesheet">
 
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="public/css/bootstrap-icons.css" rel="stylesheet">
 
-        <link href="css/templatemo-topic-listing.css" rel="stylesheet">      
+        <link href="public/css/templatemo-topic-listing.css" rel="stylesheet">      
 
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
@@ -113,8 +113,16 @@ https://templatemo.com/tm-590-topic-listing
                                     </span>
 
                                     <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Paste text here..." aria-label="Search">
-
-                                    <button type="submit" id="chatsubmit" class="form-control">Submit</button>
+                   
+                                    <form enctype="multipart/form-data" action="uploadfile.php" method="POST">  
+                                        <label for="file-upload-text" class="btn custom-btn mt-2 ">
+                                            Upload
+                                        </label>
+                                        <input id="file-upload-text" type="file" onchange="showFileName('file-upload-text')"/>
+                                        <span id="file-name"></span>
+                                        <button type="submit" id="chatsubmit" class="btn custom-btn mt-2 ">Submit</button>
+                                    </form>
+                                    <div id="file-name-display-file-upload-text"></div>
                                 </div>
                             </form>
                         </div>
@@ -135,11 +143,14 @@ https://templatemo.com/tm-590-topic-listing
                                         <div>
                                             <h5 class="mb-2">Upload Images</h5>
 
-                                            <p class="mb-0">Upload images here to check for AI generated Content</p>
-                                            <div class="dropzone">
-                                                <span class="dropzone__prompt">Drop file here or click to upload</span>
-                                            </div>
-                                            <button id="imagebutton" class="btn custom-btn mt-2 mt-lg-3">Upload</button>
+                                            <p class="mb-0">Upload or drop images here to check for AI generated Content</p>
+                                            <form enctype="multipart/form-data" action="uploadfile.php" method="POST">  
+                                                <label for="file-upload-image" class="btn custom-btn mt-2 mt-lg-3">
+                                                    Upload
+                                                </label>
+                                                <input id="file-upload-image" type="file" onchange="showFileName('file-upload-image')"/>
+                                            </form>
+                                            <div id="file-name-display-file-upload-image"></div>
                                         </div>
 
                                     </div>
@@ -151,15 +162,20 @@ https://templatemo.com/tm-590-topic-listing
                         <div class="col-lg-6 col-12 mb-lg-0">
                             <div class="custom-block custom-block-overlay">
                                 <div class="d-flex flex-column h-100">
-                                    <img src="images/businesswoman-using-tablet-analysis.jpg" class="custom-block-image img-fluid" alt="">
+                                    <img src="public/images/businesswoman-using-tablet-analysis.jpg" class="custom-block-image img-fluid" alt="">
 
                                     <div class="custom-block-overlay-text d-flex">
                                         <div>
                                             <h5 class="text-white mb-2">Upload Audio</h5>
 
-                                            <p class="text-white">Upload Audio here to check for AI generated Content</p>
-
-                                            <button id="audiobutton" class="btn custom-btn mt-2 mt-lg-3">Upload</button>
+                                            <p class="text-white">Upload or drop Audio here to check for AI generated Content</p>
+                                            <form enctype="multipart/form-data" action="uploadfile.php" method="POST">
+                                                <label for="file-upload-audio" class="btn custom-btn mt-2 mt-lg-3">
+                                                    Upload
+                                                </label>
+                                                <input id="file-upload-audio" type="file" onchange="showFileName('file-upload-audio')"/>
+                                            </form>
+                                            <div id="file-name-display-file-upload-audio"></div>
                                         </div>
 
                                     </div>
@@ -243,7 +259,7 @@ https://templatemo.com/tm-590-topic-listing
 
                                                     </div>
 
-                                                    <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt="">
+                                                    <img src="public/images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -264,7 +280,7 @@ https://templatemo.com/tm-590-topic-listing
 
                                                         </div>
 
-                                                        <img src="images/topics/undraw_online_ad_re_ol62.png" class="custom-block-image img-fluid" alt="">
+                                                        <img src="public/images/topics/undraw_online_ad_re_ol62.png" class="custom-block-image img-fluid" alt="">
                                                     </a>
                                                 </div>
                                             </div>
@@ -281,7 +297,7 @@ https://templatemo.com/tm-590-topic-listing
 
                                                         </div>
 
-                                                        <img src="images/topics/undraw_Group_video_re_btu7.png" class="custom-block-image img-fluid" alt="">
+                                                        <img src="public/images/topics/undraw_Group_video_re_btu7.png" class="custom-block-image img-fluid" alt="">
                                                     </a>
                                                 </div>
                                             </div>
@@ -301,7 +317,7 @@ https://templatemo.com/tm-590-topic-listing
 
                                                     </div>
 
-                                                    <img src="images/topics/undraw_Finance_re_gnv2.png" class="custom-block-image img-fluid" alt="">
+                                                    <img src="public/images/topics/undraw_Finance_re_gnv2.png" class="custom-block-image img-fluid" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -378,7 +394,7 @@ https://templatemo.com/tm-590-topic-listing
                         <div class="clearfix"></div>
 
                         <div class="col-lg-5 col-12">
-                            <img src="images/faq_graphic.jpg" class="img-fluid" alt="FAQs">
+                            <img src="public/images/faq_graphic.jpg" class="img-fluid" alt="FAQs">
                         </div>
 
                         <div class="col-lg-6 col-12 m-auto">
@@ -535,30 +551,66 @@ https://templatemo.com/tm-590-topic-listing
 
 
         <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/jquery.sticky.js"></script>
-        <script src="js/click-scroll.js"></script>
-        <script src="js/custom.js"></script>
+        <script src="public/js/jquery.min.js"></script>
+        <script src="public/js/bootstrap.bundle.min.js"></script>
+        <script src="public/js/jquery.sticky.js"></script>
+        <script src="public/js/click-scroll.js"></script>
+        <script src="public/js/custom.js"></script>
+
         <script>
-            const myButton = document.getElementById("chatsubmit");
-          myButton.addEventListener("click", function(event) {
-            event.preventDefault();
-            console.log("here")
-            alert("Upload feature is not ready yet, please try again later...")
-          });
-          const audiobttn = document.getElementById("imagebutton");
-          audiobttn.addEventListener("click", function(event) {
-            event.preventDefault();
-            console.log("here")
-            alert("Upload feature is not ready yet, please try again later...")
-          });
-          const imagebttn = document.getElementById("audiobutton");
-          imagebttn.addEventListener("click", function(event) {
-            event.preventDefault();
-            console.log("here")
-            alert("Upload feature is not ready yet, please try again later...")
-          });
-        </script>
+            function showFileName(inputId, allowedFileTypes) {
+              const fileUploadInput = document.getElementById(inputId);
+              const fileNameDisplay = document.getElementById(`file-name-display-${inputId}`);
+          
+              if (fileUploadInput && fileUploadInput.files.length > 0) {
+                const file = fileUploadInput.files[0];
+                const fileExtension = file.name.split('.').pop().toLowerCase();
+          
+                if (!allowedFileTypes.includes(fileExtension)) {
+                  alert(`Incorrect file type. Please upload a file with one of the following extensions: ${allowedFileTypes.join(', ')}`);
+                  // Clear the file input to allow the user to choose another file
+                  fileUploadInput.value = '';
+                  fileNameDisplay.textContent = "No file selected";
+                } else {
+                  fileNameDisplay.textContent = file.name;
+                }
+              } else {
+                fileNameDisplay.textContent = "No file selected";
+              }
+            }
+          
+            document.getElementById("file-upload-image").addEventListener("change", function (event) {
+              showFileName("file-upload-image", ["jpg", "jpeg", "png"]);
+            });
+          
+            document.getElementById("file-upload-audio").addEventListener("change", function (event) {
+              showFileName("file-upload-audio", ["mp3", "m4p", "alac", "wav", "aiff", "flac", "aac", "wma"]);
+            });
+          
+            document.getElementById("file-upload-text").addEventListener("change", function (event) {
+              showFileName("file-upload-text", ["txt", "doc", "docx"]);
+            });
+          
+            const textbttn = document.getElementById("chatsubmit");
+            textbttn.addEventListener("click", function (event) {
+              event.preventDefault();
+              console.log("here");
+              alert("Upload feature is not ready yet, please try again later...");
+            });
+          
+            const audiobttn = document.getElementById("audiobutton");
+            audiobttn.addEventListener("click", function (event) {
+              event.preventDefault();
+              console.log("here");
+              alert("Upload feature is not ready yet, please try again later...");
+            });
+          
+            const imagebttn = document.getElementById("imagebutton");
+            imagebttn.addEventListener("click", function (event) {
+              event.preventDefault();
+              console.log("here");
+              alert("Upload feature is not ready yet, please try again later...");
+            });
+          </script>
     </body>
 </html>

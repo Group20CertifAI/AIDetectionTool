@@ -16,11 +16,11 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
                         
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="public/css/bootstrap.min.css" rel="stylesheet">
 
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="public/css/bootstrap-icons.css" rel="stylesheet">
 
-        <link href="css/templatemo-topic-listing.css" rel="stylesheet">
+        <link href="public/css/templatemo-topic-listing.css" rel="stylesheet">
 
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
@@ -126,7 +126,7 @@ https://templatemo.com/tm-590-topic-listing
                         </div>
 
                         <div class="col-lg-6 col-12">
-                            <form onsubmit="signUp()" class="custom-form contact-form" role="form">
+                            <form onsubmit="return signUp()" class="custom-form contact-form" role="form">
                                 <div class="row">
                                     <div class="col-12"> 
                                         <div class="form-floating">
@@ -136,7 +136,7 @@ https://templatemo.com/tm-590-topic-listing
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating close">
-                                            <input type="password" id="password" placeholder="password" class="form-control" required="">
+                                            <input type="password" id="password" placeholder="Password" class="form-control" required="">
                                             <label for="floatingInput">Password</label> 
                                         </div>
                                     </div>
@@ -222,56 +222,36 @@ https://templatemo.com/tm-590-topic-listing
         </footer>
 
         <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/jquery.sticky.js"></script>
-        <script src="js/custom.js"></script>
-        <!-- Include Firebase scripts first -->
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+        <script src="public/js/jquery.min.js"></script>
+        <script src="public/js/bootstrap.bundle.min.js"></script>
+        <script src="public/js/jquery.sticky.js"></script>
+        <script src="public/js/custom.js"></script>
+        <script>
+  //onsubmit of sign up button, call the createUserWithEmailAndPassword function with email and password as parameters
+    //if successful, redirect to login page
+    //else, display error message
+    function signUp() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    
+    fetch('/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+        window.location.href = "login.html";
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    return false; // prevent form submission
+  }
+        </script>
 
-<!-- include config.js -->
-
-
-<!-- initialize Firebase and set up signUp function -->
-<script>
-    //  web app's Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyCmbhXwRTMiyXl_y1wrPnOY-mipeAMi8T0",
-        authDomain: "certifai-8afc6.firebaseapp.com",
-        projectId: "certifai-8afc6",
-        storageBucket: "certifai-8afc6.appspot.com",
-        messagingSenderId: "1073534950411",
-        appId: "1:1073534950411:web:400de3999bd7730c353b0e",
-        measurementId: "G-BXVF3JMY0N"
-    };
-
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-
-    function signUp(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        auth.createUserWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                window.location.href = "login.html";
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                alert(errorMessage);
-            });
-    }
-
-    const submitBtn = document.getElementById('sign-up');
-    submitBtn.addEventListener('click', signUp);
-</script>
-         
-    </body>   
+    </body>
 </html>
