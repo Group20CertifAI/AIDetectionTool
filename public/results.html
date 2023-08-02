@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Login Page</title>
+        <title>CertifAI - Results</title>
 
         <!-- CSS FILES -->        
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,17 +20,10 @@
 
         <link href="public/css/bootstrap-icons.css" rel="stylesheet">
 
-        <link href="public/css/templatemo-topic-listing.css" rel="stylesheet">
+        <link href="public/css/template.css" rel="stylesheet">
 
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
-<!--
-
-TemplateMo 590 topic listing
-
-https://templatemo.com/tm-590-topic-listing
-
--->
     </head>
     
     <body class="topics-listing-page" id="top">
@@ -90,74 +83,16 @@ https://templatemo.com/tm-590-topic-listing
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                                 <li><a class="dropdown-item" href="login.html">Login</a></li>
                                 <li><a class="dropdown-item" href="signup.html">Sign Up</a></li>
+                                <li id="signout" style="display: none;"><a class="dropdown-item" href="#">Sign Out</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </nav>
 
-            <header class="site-header d-flex flex-column justify-content-center align-items-center"> 
-                <div class="container">
-                    <div class="row align-items-center">
-
-                        <div class="col-lg-5 col-12">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Signup</a></li>
-
-                                    <li class="breadcrumb-item active" aria-current="page">Sign up</li>
-                                </ol>
-                            </nav>
-
-                            <h2 class="text-white">Sign up</h2>
-                        </div>
-
-                    </div>
-                </div>
-            </header>
-
-
             <section class="section-padding section-bg">
                 <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-12 col-12">
-                            <h1 class="mb-4 pb-2">Sign up to <br>Know What's Real</h1></h1>
-                        </div>
-
-                        <div class="col-lg-6 col-12">
-                            <form onsubmit="return signUp()" class="custom-form contact-form" role="form">
-                                <div class="row">
-                                    <div class="col-12"> 
-                                        <div class="form-floating">
-                                            <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
-                                            <label for="floatingInput">Email address</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating close">
-                                            <input type="password" id="password" placeholder="Password" class="form-control" required="">
-                                            <label for="floatingInput">Password</label> 
-                                        </div>
-                                    </div>
-                                    <div class="col-12 mt-4">
-                                        <input type="submit" id="sign-up" class="form-control" value="Sign Up" onsubmit="signUp()"></input> 
-                                    </div>
-                                      
-                                </div>
-                            </form>
-                            <div class="options">
-                                <div class="seperator">
-                                    <p>or continue with</p>
-                                </div>
-                                <ul class="d-inline-flex">
-                                    <li class="ga"><a href="#"><i class="ri-google-fill ri-2x"></i></a></li>
-                                    <li class="mx-3"><a href="#"><i class="ri-apple-fill ri-2x"></i></a></li>
-                                    <li class="mx-3"><a href="#"><i class="ri-facebook-fill ri-2x"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <textarea name="tobe" id="tobe">This is where our repsonse will be generated.</textarea>
                 </div>
             </section>
         </main>
@@ -213,10 +148,7 @@ https://templatemo.com/tm-590-topic-listing
 
                     <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
                         <p class="copyright-text mt-lg-5 mt-4">Copyright © 2023 CertifAI. All rights reserved.
-                        <br><br>Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
-                        
                     </div>
-
                 </div>
             </div>
         </footer>
@@ -226,32 +158,8 @@ https://templatemo.com/tm-590-topic-listing
         <script src="public/js/bootstrap.bundle.min.js"></script>
         <script src="public/js/jquery.sticky.js"></script>
         <script src="public/js/custom.js"></script>
-        <script>
-  //onsubmit of sign up button, call the createUserWithEmailAndPassword function with email and password as parameters
-    //if successful, redirect to login page
-    //else, display error message
-    function signUp() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    
-    fetch('/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Success:', data);
-        window.location.href = "login.html";
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-    return false; // prevent form submission
-  }
-        </script>
-
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+        <script src="./firebase.js"></script>
     </body>
 </html>

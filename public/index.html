@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="description" content="Come find out what is real and AI generated.">
+        <meta name="author" content="CertifAI20">
 
         <title>CertifAI</title>
 
@@ -20,7 +20,7 @@
 
         <link href="public/css/bootstrap-icons.css" rel="stylesheet">
 
-        <link href="public/css/templatemo-topic-listing.css" rel="stylesheet">      
+        <link href="public/css/template.css" rel="stylesheet">      
 
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
@@ -88,8 +88,9 @@ https://templatemo.com/tm-590-topic-listing
                             <a class="navbar-icon bi-person smoothscroll nav-link " href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
 
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                <li><a class="dropdown-item" href="login.html">Login</a></li>
-                                <li><a class="dropdown-item" href="login.html">Sign Up</a></li>
+                                <li id="login"><a class="dropdown-item" href="login.html">Login</a></li>
+                                <li id="signup"><a class="dropdown-item" href="signup.html">Sign Up</a></li>
+                                <li id="signout" style="display: none;"><a class="dropdown-item" href="#">Sign Out</a></li>
                             </ul>
                         </div>
                     </div>
@@ -541,7 +542,6 @@ https://templatemo.com/tm-590-topic-listing
                     <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
                         
                         <p class="copyright-text mt-lg-5 mt-4">Copyright © 2023 CertifAI. All rights reserved.
-                        <br><br>Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
                         
                     </div>
 
@@ -612,5 +612,12 @@ https://templatemo.com/tm-590-topic-listing
               alert("Upload feature is not ready yet, please try again later...");
             });
           </script>
+            <!-- Firebase App -->
+            <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+
+            <!-- Firebase Auth -->
+            <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+            <script src="./firebase.js"></script>
+
     </body>
 </html>
