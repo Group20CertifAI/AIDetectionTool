@@ -27,13 +27,13 @@ app.get('/index.html', (req, res) => {
 });
 
 
-app.get('/signup.html', (req, res) => {
+app.get('/signup', (req, res) => {
     res.sendFile(__dirname + '/signup.html');
 });
 
 
 
-app.get('/login.html', (req, res) => {
+app.get('/login', (req, res) => {
     res.sendFile(__dirname + '/login.html');
 });
 
@@ -90,7 +90,7 @@ app.post('/audio-detection', (req, res) => {
 );
 
 app.get('/results', (req, res) => {
-    res.sendFile(__dirname + '/results.html');
+    res.sendFile(__dirname + '/public/results.html');
 }
 );
 
