@@ -17,12 +17,9 @@ async function analyzeTextAPI(text) {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-
         const data = await response.json();
-
         console.log({status: response.status});
         console.log(JSON.stringify(data, null, 4));
-
         // Save the response data in the session storage
         sessionStorage.setItem('apiResponse', JSON.stringify(data));
         return response.status;

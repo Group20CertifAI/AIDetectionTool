@@ -177,10 +177,8 @@
             window.onload = function() {
                 // Get the response data from the session storage
                 const apiResponse = sessionStorage.getItem('apiResponse');
-            
                 // Parse the response data back into a JavaScript object
                 const data = JSON.parse(apiResponse);
-
                 // Display the data in the textarea
                 document.getElementById('results').value = data.text;
                 let score = data.score; // retrieve this from your actual data
@@ -203,8 +201,6 @@
                 }
                 document.getElementById('score').textContent = `Score: ${score}`;
                 document.getElementById('result').textContent = resultText;
-
-
             }
             </script>            
     </body>
