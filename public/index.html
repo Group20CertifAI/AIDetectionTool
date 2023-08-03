@@ -3,213 +3,207 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <meta name="description" content="Come find out what is real and AI generated.">
         <meta name="author" content="CertifAI20">
 
         <title>CertifAI</title>
-
-        <!-- CSS FILES -->        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
-                        
         <link href="public/css/bootstrap.min.css" rel="stylesheet">
 
         <link href="public/css/bootstrap-icons.css" rel="stylesheet">
 
         <link href="public/css/template.css" rel="stylesheet">      
 
-        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        <style>
+            .btn-group-first {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                border-right: none;
+                background-color: #81d0c7;
+                border-color: #81d0c7;
+            }
+        
+            .btn-group-middle {
+                border-radius: 0;
+                border-right: none;
+                background-color: #81d0c7;
+                border-color: #81d0c7;
+            }
+        
+            .btn-group-last {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                background-color: #81d0c7;
+                border-color: #81d0c7;
+            }
+            .btn-group-active {
+                background-color: #13547a;
+            }
 
-<!--
+            .rounded-border {
+                    border-radius: 10px;
+                    width: 90px;
+                    text-align: center;
+            }
+            /* on hover make the button color darker */
+            .rounded-border:hover {
+                background-color: #ffffff;
+            }
+    </style>
+</head>
 
-TemplateMo 590 topic listing
+<body  id="top">
+<main>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi-back"></i>
+                <span>CertifAI</span>
+            </a>
 
-https://templatemo.com/tm-590-topic-listing
+            <div class="d-lg-none ms-auto me-4 dropdown">
+                    <ul class="" aria-labelledby="navbarLightDropdownMenuLink">
+                        <li><a id="login" class="p-2 border rounded-border login" href="login.html">Login</a></li>
+                        <li><a id="signup" class="p-2 border rounded-border signup" href="signup.html">Sign Up</a></li>
+                        <li><a id="signout" class="p-2 border rounded-border signout" href="#">Sign Out</a></li>
+                    </ul>
+            </div>
 
--->
-    </head>
-    
-    <body id="top">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="index.html#section_1">HOME</a>
+                    </li>
 
-        <main>
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="index.html#section_2">USE CASES</a>
+                    </li>
 
-            <nav class="navbar navbar-expand-lg">
-                <div class="container">
-                    <a class="navbar-brand" href="index.html">
-                        <i class="bi-back"></i>
-                        <span>CertifAI</span>
-                    </a>
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="index.html#section_3">ABOUT CERTIFAI</a>
+                    </li>
 
-                    <div class="d-lg-none ms-auto me-4">
-                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
-                    </div>
-    
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-    
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="#section_1">Home</a>
-                            </li>
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="index.html#section_4">FAQs</a>
+                    </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="#section_2">Use Cases</a>
-                            </li>
-    
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="#section_3">About CertifAI</a>
-                            </li>
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll" href="index.html#section_5">CONTACT</a>
+                    </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="#section_4">FAQs</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="#section_5">Contact</a>
-                            </li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-
-                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="contact.html">Report Issue</a></li>
-                                </ul>
-                            </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                            <li><a class="dropdown-item active" href="contact.html">REPORT ISSUE</a></li>
                         </ul>
-
-                        
-                        <div class="d-none d-lg-block dropdown">
-                            <a class="navbar-icon bi-person smoothscroll nav-link " href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-
-                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                <li id="login"><a class="dropdown-item" href="login.html">Login</a></li>
-                                <li id="signup"><a class="dropdown-item" href="signup.html">Sign Up</a></li>
-                                <li id="signout" style="display: none;"><a class="dropdown-item" href="#">Sign Out</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    </li>
+                </ul>
+                <div class="d-none d-lg-block dropdown">
+                    <a class="navbar-icon bi-person smoothscroll nav-link " href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                    <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                        <li><a id="login" class="dropdown-item login" href="login.html">Login</a></li>
+                        <li><a id="signup" class="dropdown-item signup" href="signup.html">Sign Up</a></li>
+                        <li><a id="signout" class="dropdown-item signout" href="#">Sign Out</a></li>
+                    </ul>
                 </div>
-            </nav>
-            
+            </div>
+        </div>
+    </nav>
 
+
+
+            
             <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
                 <div class="container">
                     <div class="row">
-
                         <div class="col-lg-8 col-12 mx-auto">
                             <h1 class="text-white text-center">Know whats real and fake, Try CertifAI today!</h1>
-
                             <h6 class="text-center">AI generated content detector to help keep you grounded in reality</h6>
-
-                            <form method="post" onsubmit="uploadNotReady()" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
-                                <div class="input-group input-group-lg">
-                                    <span class="input-group-text bi-search" id="basic-addon1">
-                                        
-                                    </span>
-
-                                    <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Paste text here..." aria-label="Search">
-                   
-                                    <form enctype="multipart/form-data" action="uploadfile.php" method="POST">  
-                                        <label for="file-upload-text" class="btn custom-btn mt-2 ">
-                                            Upload
-                                        </label>
-                                        <input id="file-upload-text" type="file" onchange="showFileName('file-upload-text')"/>
-                                        <span id="file-name"></span>
-                                        <button type="submit" id="chatsubmit" class="btn custom-btn mt-2 ">Submit</button>
+                
+                            <div style="background-color: white; border-radius: 1.5rem;" class="mt-4 p-2 container">
+                                <div class="d-flex justify-content-left my-2 mx-2">
+                                    <button type="button" id="text-button" onclick="changeFormView('text')" class="btn btn-primary list btn-group-first btn-group-active col">Text</button>
+                                    <button type="button" id="audio-button" onclick="changeFormView('audio')" class="btn btn-primary list btn-group-middle col">Audio</button>
+                                    <button type="button" id="image-button" onclick="changeFormView('image')" class="btn btn-primary list btn-group-last col">Image</button>
+                                </div>
+                            
+                                <div class="row sectionR" id="text-section" style="display: block;" >
+                                    <form method="post" onsubmit="uploadNotReady()" class="custom-form" role="search">
+                                    <div class="">
+                                        <textarea id="textarea" class="container resize pt-3 px-3 w-100 border-0" style="border-radius: 1.6rem;" placeholder="Paste text here.." name="" id="" rows="10"></textarea>
+                                    </div>
                                     </form>
-                                    <div id="file-name-display-file-upload-text"></div>
                                 </div>
+                                <div class="row sectionR" id="audio-section" style="display: none;">
+                                      <div class="col-sm-12 text-center">
+                                        <h3 class="text-secondary mt-5">This feature is coming soon!</h3>
+                                    </div>
+                                </div>
+                                <div class="row sectionR" id="image-section" style="display: none;">
+                                    <div class="col-sm-12 text-center">
+                                        <h3 class="text-secondary mt-5">This feature is coming soon!</h3>
+                                    </div>
+                                </div>
+                                    <!-- buttons -->
+                                <form onsubmit="return checkUpload()">
+                                <label for="file-upload-text" class="btn custom-btn mt-2 ">
+                                    Upload File
+                                </label>
+                                <input id="file-upload-text" type="file" onchange="showFileName('file-upload-text', ['txt', 'doc', 'docx', 'pdf'])"/>
+                                <span id="file-name"></span>
+                                <button type="submit" id="chatsubmit" class="btn custom-btn mt-2 ">Submit</button>
                             </form>
+                            <div id="file-name-display-file-upload-text"></div>
+                            </div>
                         </div>
-
                     </div>
                 </div>
+
+                <!-- modal -->
+                <div class="modal fade" id="uploadChoiceModal" tabindex="-1" role="dialog" aria-labelledby="uploadChoiceModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="uploadChoiceModalLabel">Upload Choice</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                User can only upload one type, choose either file upload or text upload. 
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" onclick="showForm('text')">Upload Text</button>
+                                <button type="button" class="btn btn-primary" onclick="showForm('file')">Upload File</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- sign in before upload modal -->
+                <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="signInModalLabel">Authentication Required</h5>
+                            </div>
+                            <div class="modal-body">
+                                You need to sign in before you can upload.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <!-- Redirecting to /login on click -->
+                                <button type="button" class="btn btn-primary" onclick="redirectToLogin()">Log In</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
             </section> 
+            
 
 
-            <section class="featured-section">
-                <div class="container">
-                    <div class="row justify-content-center">
-
-                        <div class="col-lg-6 col-12 mb-4 mb-lg-0">
-                            <div class="custom-block bg-white shadow-lg">
-                                <a>
-                                    <div class="d-flex">
-                                        <div>
-                                            <h5 class="mb-2">Upload Images</h5>
-
-                                            <p class="mb-0">Upload or drop images here to check for AI generated Content</p>
-                                            <form enctype="multipart/form-data" action="uploadfile.php" method="POST">  
-                                                <label for="file-upload-image" class="btn custom-btn mt-2 mt-lg-3">
-                                                    Upload
-                                                </label>
-                                                <input id="file-upload-image" type="file" onchange="showFileName('file-upload-image')"/>
-                                            </form>
-                                            <div id="file-name-display-file-upload-image"></div>
-                                        </div>
-
-                                    </div>
-   
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-12 mb-lg-0">
-                            <div class="custom-block custom-block-overlay">
-                                <div class="d-flex flex-column h-100">
-                                    <img src="public/images/businesswoman-using-tablet-analysis.jpg" class="custom-block-image img-fluid" alt="">
-
-                                    <div class="custom-block-overlay-text d-flex">
-                                        <div>
-                                            <h5 class="text-white mb-2">Upload Audio</h5>
-
-                                            <p class="text-white">Upload or drop Audio here to check for AI generated Content</p>
-                                            <form enctype="multipart/form-data" action="uploadfile.php" method="POST">
-                                                <label for="file-upload-audio" class="btn custom-btn mt-2 mt-lg-3">
-                                                    Upload
-                                                </label>
-                                                <input id="file-upload-audio" type="file" onchange="showFileName('file-upload-audio')"/>
-                                            </form>
-                                            <div id="file-name-display-file-upload-audio"></div>
-                                        </div>
-
-                                    </div>
-
-                                    <!-- Social Media Links -->
-                                    <!-- <div class="social-share d-flex">
-                                        <p class="text-white me-4">Share:</p>
-
-                                        <ul class="social-icon">
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-twitter"></a>
-                                            </li>
-
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-facebook"></a>
-                                            </li>
-
-                                            <li class="social-icon-item">
-                                                <a href="#" class="social-icon-link bi-pinterest"></a>
-                                            </li>
-                                        </ul>
-
-                                        <a href="#" class="custom-icon bi-bookmark ms-auto"></a>
-                                    </div> -->
-
-                                    <div class="section-overlay"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
 
 
             <section class="explore-section section-padding" id="section_2">
@@ -578,46 +572,80 @@ https://templatemo.com/tm-590-topic-listing
                 fileNameDisplay.textContent = "No file selected";
               }
             }
-          
-            document.getElementById("file-upload-image").addEventListener("change", function (event) {
-              showFileName("file-upload-image", ["jpg", "jpeg", "png"]);
-            });
-          
-            document.getElementById("file-upload-audio").addEventListener("change", function (event) {
-              showFileName("file-upload-audio", ["mp3", "m4p", "alac", "wav", "aiff", "flac", "aac", "wma"]);
-            });
+
           
             document.getElementById("file-upload-text").addEventListener("change", function (event) {
               showFileName("file-upload-text", ["txt", "doc", "docx"]);
             });
-          
-            const textbttn = document.getElementById("chatsubmit");
-            textbttn.addEventListener("click", function (event) {
-              event.preventDefault();
-              console.log("here");
-              alert("Upload feature is not ready yet, please try again later...");
-            });
-          
-            const audiobttn = document.getElementById("audiobutton");
-            audiobttn.addEventListener("click", function (event) {
-              event.preventDefault();
-              console.log("here");
-              alert("Upload feature is not ready yet, please try again later...");
-            });
-          
-            const imagebttn = document.getElementById("imagebutton");
-            imagebttn.addEventListener("click", function (event) {
-              event.preventDefault();
-              console.log("here");
-              alert("Upload feature is not ready yet, please try again later...");
-            });
-          </script>
-            <!-- Firebase App -->
-            <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
 
-            <!-- Firebase Auth -->
+
+            function changeFormView(buttonId) {
+                const types = ["text", "audio", "image"];
+                if (!types.includes(buttonId)) {
+                    console.error('Invalid buttonId provided');
+                    return;
+                }
+
+            // Remove active class from all buttons and hide all sections 
+            const buttons = document.querySelectorAll('.list');
+            buttons.forEach(button => {
+                if (button.id !== `${buttonId}-button`) {
+                    button.classList.remove('btn-group-active');
+                }
+            });
+
+            const sections = document.querySelectorAll('.sectionR');
+            sections.forEach(section => {
+                if (section.id !== `${buttonId}-section`) {
+                    section.style.display = 'none';
+                }
+            });
+
+            // Add active class to clicked button and show corresponding section
+            document.getElementById(`${buttonId}-button`).classList.add('btn-group-active');
+            document.getElementById(`${buttonId}-section`).style.display = 'block';
+            }
+
+            function requireAuth(event) {
+                var user = firebase.auth().currentUser;
+
+                if (user) {
+                    // User is signed in.
+                    // You can proceed with form submission or any other operation you want to perform
+                } else {
+                    // No user is signed in.
+                    // Show a modal asking the user to choose upload type
+                    $('#signInModal').modal('show');
+                    event.preventDefault(); // prevent the form from submitting
+                }
+            }
+
+
+            document.getElementById("chatsubmit").addEventListener("click", requireAuth);
+
+            function checkUpload() {
+            const textarea = document.getElementById('textarea');
+            const fileInput = document.getElementById('file-upload-text');
+            if (textarea.value && fileInput.files.length > 0) {
+                alert('Please upload either a file or input text');
+                // Instead of alert, you can show a modal asking the user to choose one of the options
+
+                return false;
+            } else if (!textarea.value && fileInput.files.length == 0) {
+                alert('Please upload either a file or text.');
+                return false;
+            }
+            return true;
+        }
+
+        function redirectToLogin() {
+            window.location.href = "/login.html";
+        }
+
+
+          </script>
+            <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
             <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
             <script src="./firebase.js"></script>
-
     </body>
 </html>

@@ -9,30 +9,11 @@
 
         <title>CertifAI - Login</title>
 
-        <!-- CSS FILES -->        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
-                        
         <link href="public/css/bootstrap.min.css" rel="stylesheet">
 
         <link href="public/css/bootstrap-icons.css" rel="stylesheet">
 
         <link href="public/css/template.css" rel="stylesheet">
-
-        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-
-
-        
-<!--
-
-TemplateMo 590 topic listing
-
-https://templatemo.com/tm-590-topic-listing
-
--->
     </head>
     
     <body class="topics-listing-page" id="top">
@@ -45,57 +26,55 @@ https://templatemo.com/tm-590-topic-listing
                         <i class="bi-back"></i>
                         <span>CertifAI</span>
                     </a>
-
-                    <div class="d-lg-none ms-auto me-4">
-                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+        
+                    <div class="d-lg-none ms-auto me-4 dropdown">
+                            <ul class="" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a id="login" class="p-2 border rounded-border login" href="login.html">Login</a></li>
+                                <li><a id="signup" class="p-2 border rounded-border signup" href="signup.html">Sign Up</a></li>
+                                <li><a id="signout" class="p-2 border rounded-border signout" href="#">Sign Out</a></li>
+                            </ul>
                     </div>
-    
+        
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-    
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-lg-5 me-lg-auto">
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="index.html#section_1">HOME</a>
                             </li>
-
+        
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="index.html#section_2">USE CASES</a>
                             </li>
-    
+        
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="index.html#section_3">ABOUT CERTIFAI</a>
                             </li>
-
+        
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="index.html#section_4">FAQs</a>
                             </li>
-    
+        
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="index.html#section_5">CONTACT</a>
                             </li>
-
+        
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-
                                 <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                    <!--<li><a class="dropdown-item" href="topics-listing.html">Topics Listing</a></li> -->
-
                                     <li><a class="dropdown-item active" href="contact.html">REPORT ISSUE</a></li>
                                 </ul>
                             </li>
-                      
                         </ul>
-                        <div class="d-none d-lg-block dropdown" id="user-info">
+                        <div class="d-none d-lg-block dropdown">
                             <a class="navbar-icon bi-person smoothscroll nav-link " href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-                        
-                            <ul class="dropdown-menu dropdown-menu-light" id="profile-dropdown" aria-labelledby="navbarLightDropdownMenuLink">
-                                <li id="login"><a class="dropdown-item" href="login.html">Login</a></li>
-                                <li id="signup"><a class="dropdown-item" href="signup.html">Sign Up</a></li>
-                                <li id="signout" style="display: none;"><a class="dropdown-item" href="#">Sign Out</a></li>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a id="login" class="dropdown-item login" href="login.html">Login</a></li>
+                                <li><a id="signup" class="dropdown-item signup" href="signup.html">Sign Up</a></li>
+                                <li><a id="signout" class="dropdown-item signout" href="#">Sign Out</a></li>
                             </ul>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -127,6 +106,7 @@ https://templatemo.com/tm-590-topic-listing
 
                         <div class="col-lg-12 col-12">
                             <h1 class="mb-4 pb-2">Log In to <br>Know What's Real</h1></h1>
+                            <p>Or <a style="text-decoration: underline;" href="./signup.html">Sign up Now!</a></p>
                         </div>
                         
                         <div class="col-lg-6 col-12">
@@ -162,30 +142,30 @@ https://templatemo.com/tm-590-topic-listing
             </section>
         </main>
 
-        <!-- Password Reset Modal -->
-<div class="modal fade" id="passwordResetModal" tabindex="-1" aria-labelledby="passwordResetModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="passwordResetModalLabel">Password Reset</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="password-reset-form">
-            <div class="mb-3">
-              <label for="password-reset-email" class="col-form-label">Email:</label>
-              <input type="email" class="form-control" id="password-reset-email">
+                <!-- Password Reset Modal -->
+        <div class="modal fade" id="passwordResetModal" tabindex="-1" aria-labelledby="passwordResetModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="passwordResetModalLabel">Password Reset</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form id="password-reset-form">
+                    <div class="mb-3">
+                    <label for="password-reset-email" class="col-form-label">Email:</label>
+                    <input type="email" class="form-control" id="password-reset-email">
+                    </div>
+                    <p id="password-reset-message" style="display: none;">Password reset email sent!</p>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Send password reset email">
+                    </div>
+                </form>
+                </div>
             </div>
-            <p id="password-reset-message" style="display: none;">Password reset email sent!</p>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <input type="submit" class="btn btn-primary" value="Send password reset email">
             </div>
-          </form>
         </div>
-      </div>
-    </div>
-  </div>
   
 
         <footer class="site-footer section-padding">
@@ -259,6 +239,7 @@ https://templatemo.com/tm-590-topic-listing
         <script src="./firebase.js"></script>
         <!-- initialize Firebase and set up signUp function -->
         <script>
+            const signInForm = document.getElementById('sign-in-form');
 
         signInForm.addEventListener('submit', async (event) => {
             event.preventDefault();
@@ -288,9 +269,6 @@ https://templatemo.com/tm-590-topic-listing
                     console.log('Error sending password reset email: ', error);
                 });
             });
-
-
-
 
         </script>
     </body>
