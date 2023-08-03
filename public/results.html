@@ -95,6 +95,9 @@
                         <div class="col-lg-8 col-12 mx-auto">
                             <h1 class="text-white text-center">Results</h1>
                             <h6 class="text-center">Here are the results of the AI content detection:</h6>
+                            <h3 id="result" class="text-center"></h3>
+                            <h5 id="score" class="text-center"></h5>
+                            <p id="description" class="small text-dark">(Score 0-1) A score of 0 indicates maximum confidence that the text is human-written, while a score of 1 indicates maximum confidence that the text is AI-generated.</p>
                             <div style="background-color: white; border-radius: 1.5rem;" class="mt-4 p-2 container">
                                 <textarea id="results" class="container resize pt-3 px-3 w-100 border-0" style="border-radius: 1.6rem;" placeholder="Results will be displayed here..." rows="10" readonly></textarea>
                             </div>
@@ -168,6 +171,41 @@
         <script src="public/js/custom.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="./firebase.js"></script>
+        <script>
+            window.onload = function() {
+                // Get the response data from the session storage
+                const apiResponse = sessionStorage.getItem('apiResponse');
+            
+                // Parse the response data back into a JavaScript object
+                const data = JSON.parse(apiResponse);
+
+                // Display the data in the textarea
+                document.getElementById('results').value = data.text;
+                let score = data.score; // retrieve this from your actual data
+                let resultText;
+                score = score.toFixed(7);
+                // Generate appropriate message based on the score
+                if (score <= 0.2) {
+                    resultText = "This text is very likely human-generated.";
+                } else if (score <= 0.5) {
+                    resultText = "This text is possibly human-generated.";
+                } else if (score <= 0.7) {
+                    resultText = "This text could be either human or AI-generated.";
+                } else if (score <= 0.9) {
+                    resultText = "This text is possibly AI-generated.";
+                } else if (score > 1) {
+                    resultText = "This text is very likely AI-generated.";
+                }
+                 else {
+                    resultText = "This text is very likely AI-generated.";
+                }
+                document.getElementById('score').textContent = `Score: ${score}`;
+                document.getElementById('result').textContent = resultText;
+
+
+            }
+            </script>            
     </body>
 </html>
