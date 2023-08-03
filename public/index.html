@@ -597,7 +597,7 @@
 
           
             document.getElementById("file-upload-text").addEventListener("change", function (event) {
-              showFileName("file-upload-text", ["txt", "doc", "docx"]);
+              showFileName("file-upload-text", ["txt"]);
             });
 
 
@@ -676,30 +676,23 @@
                 const fileExtension = file.name.split('.').pop().toLowerCase();
                 if (fileExtension === 'txt') {
                     const reader = new FileReader();
-                    reader.onload = function (e) {
-                        const text = reader.result;
-                        analyzeTextAPI(text).then((response) => {
-                            console.log(response);
+                    reader.onload = async function(event) {
+                    const fileContent = event.target.result;
+                    try {
+                        await analyzeTextAPI(fileContent).then((response) => {
                             window.location.href = '/results.html';
                         }).catch((error) => {
                             console.log(error);
                         });
+                    } catch (err) {
+                        console.error(err);
+                    }
+                    reader.onerror = function(event) {
+                        console.error("Error reading file: ", event);
+                    };
                     }
                     reader.readAsText(file);
-                } else if (fileExtension === 'doc' || fileExtension === 'docx') {
-                    const reader = new FileReader();
-                    reader.onload = function (e) {
-                        const arrayBuffer = reader.result;
-                        const wordArray = new Uint8Array(arrayBuffer);
-                        const text = new TextDecoder("utf-8").decode(wordArray);
-                        analyzeTextAPI(text).then((response) => {
-                            console.log(response);
-                            window.location.href = '/results.html';
-                        }).catch((error) => {
-                            console.log(error);
-                        });
-                    }
-                    reader.readAsArrayBuffer(file);
+                    return false;
                 } else {
                     // display modal asking user to upload either file or text
                     $('#UploadFirstModal').modal('show');
