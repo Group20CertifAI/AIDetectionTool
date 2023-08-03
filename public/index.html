@@ -162,26 +162,44 @@
                     </div>
                 </div>
 
-                <!-- modal -->
-                <div class="modal fade" id="uploadChoiceModal" tabindex="-1" role="dialog" aria-labelledby="uploadChoiceModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="uploadChoiceModalLabel">Upload Choice</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                User can only upload one type, choose either file upload or text upload. 
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" onclick="showForm('text')">Upload Text</button>
-                                <button type="button" class="btn btn-primary" onclick="showForm('file')">Upload File</button>
-                            </div>
+                <!-- ChooseOne modal -->
+                <div class="modal fade" id="ChoseOneModal" tabindex="-1" aria-labelledby="ChoseOneModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="ChoseOneModalLabel">Either Upload File or Submit Text</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        Please choose to upload either a file or input text.
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
+                    </div>
                 </div>
+
+                <!-- UploadFirst modal -->
+                <div class="modal fade" id="UploadFirstModal" tabindex="-1" aria-labelledby="UploadFirstModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="UploadFirstModalLabel">No Input Detected ⚠️</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        Please upload either a file or input some text.
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+  
+  
+
                 <!-- sign in before upload modal -->
                 <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -621,18 +639,20 @@
             }
 
 
-            document.getElementById("chatsubmit").addEventListener("click", requireAuth);
+            document.getElementById("chatsubmit").addEventListener("click", requireAuth, checkUpload);
 
             function checkUpload() {
             const textarea = document.getElementById('textarea');
             const fileInput = document.getElementById('file-upload-text');
+            console.log(textarea.value);
+            console.log(fileInput.files.length);
             if (textarea.value && fileInput.files.length > 0) {
-                alert('Please upload either a file or input text');
-                // Instead of alert, you can show a modal asking the user to choose one of the options
-
+                // Display modal asking user to choose to upload either file or text
+                $('#ChoseOneModal').modal('show');
                 return false;
             } else if (!textarea.value && fileInput.files.length == 0) {
-                alert('Please upload either a file or text.');
+                // display modal asking user to upload either file or text
+                $('#UploadFirstModal').modal('show');
                 return false;
             }
             return true;
