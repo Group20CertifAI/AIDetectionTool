@@ -1,10 +1,39 @@
-/*
+/* Ricky styles */
 
-TemplateMo 590 topic listing
+.rounded-border {
+  border-radius: 10px;
+  width: 90px;
+  text-align: center;
+}
+/* on hover make the button color darker */
+.rounded-border:hover {
+background-color: #ffffff;
+}
 
-https://templatemo.com/tm-590-topic-listing
+.btn-group-first {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+  background-color: #81d0c7;
+  border-color: #81d0c7;
+}
 
-*/
+.btn-group-middle {
+  border-radius: 0;
+  border-right: none;
+  background-color: #81d0c7;
+  border-color: #81d0c7;
+}
+
+.btn-group-last {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: #81d0c7;
+  border-color: #81d0c7;
+}
+.btn-group-active {
+  background-color: #13547a;
+}
 
 /*---------------------------------------
   CUSTOM PROPERTIES ( VARIABLES )             

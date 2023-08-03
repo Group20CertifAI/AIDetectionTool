@@ -7,34 +7,13 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Login Page</title>
+        <title>CertifAI - Login</title>
 
-        <!-- CSS FILES -->        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
-                        
         <link href="public/css/bootstrap.min.css" rel="stylesheet">
 
         <link href="public/css/bootstrap-icons.css" rel="stylesheet">
 
-        <link href="public/css/templatemo-topic-listing.css" rel="stylesheet">
-
-        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-
-        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-
-        
-<!--
-
-TemplateMo 590 topic listing
-
-https://templatemo.com/tm-590-topic-listing
-
--->
+        <link href="public/css/template.css" rel="stylesheet">
     </head>
     
     <body class="topics-listing-page" id="top">
@@ -47,53 +26,53 @@ https://templatemo.com/tm-590-topic-listing
                         <i class="bi-back"></i>
                         <span>CertifAI</span>
                     </a>
-
-                    <div class="d-lg-none ms-auto me-4">
-                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+        
+                    <div class="d-lg-none ms-auto me-4 dropdown">
+                            <ul class="" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a id="login" class="p-2 border rounded-border login" href="login.html">Login</a></li>
+                                <li><a id="signup" class="p-2 border rounded-border signup" href="signup.html">Sign Up</a></li>
+                                <li><a id="signout" class="p-2 border rounded-border signout" href="#">Sign Out</a></li>
+                            </ul>
                     </div>
-    
+        
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-    
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-lg-5 me-lg-auto">
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="index.html#section_1">HOME</a>
                             </li>
-
+        
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="index.html#section_2">USE CASES</a>
                             </li>
-    
+        
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="index.html#section_3">ABOUT CERTIFAI</a>
                             </li>
-
+        
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="index.html#section_4">FAQs</a>
                             </li>
-    
+        
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="index.html#section_5">CONTACT</a>
                             </li>
-
+        
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-
                                 <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                    <!--<li><a class="dropdown-item" href="topics-listing.html">Topics Listing</a></li> -->
-
                                     <li><a class="dropdown-item active" href="contact.html">REPORT ISSUE</a></li>
                                 </ul>
                             </li>
                         </ul>
                         <div class="d-none d-lg-block dropdown">
                             <a class="navbar-icon bi-person smoothscroll nav-link " href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                <li><a class="dropdown-item" href="login.html">Login</a></li>
-                                <li><a class="dropdown-item" href="signup.html">Sign Up</a></li>
+                                <li><a id="login" class="dropdown-item login" href="login.html">Login</a></li>
+                                <li><a id="signup" class="dropdown-item signup" href="signup.html">Sign Up</a></li>
+                                <li><a id="signout" class="dropdown-item signout" href="#">Sign Out</a></li>
                             </ul>
                         </div>
                     </div>
@@ -127,10 +106,11 @@ https://templatemo.com/tm-590-topic-listing
 
                         <div class="col-lg-12 col-12">
                             <h1 class="mb-4 pb-2">Log In to <br>Know What's Real</h1></h1>
+                            <p>Or <a style="text-decoration: underline;" href="./signup.html">Sign up Now!</a></p>
                         </div>
-
+                        
                         <div class="col-lg-6 col-12">
-                            <form action="" method="post" class="custom-form contact-form" role="form">
+                            <form id="sign-in-form" class="custom-form contact-form" role="form">
                                 <div class="row">
                                     <div class="col-12"> 
                                         <div class="form-floating">
@@ -145,26 +125,48 @@ https://templatemo.com/tm-590-topic-listing
                                         </div>
                                     </div>
                                     <div class="col-12 mt-4">
-                                        <input type="submit" id="login" class="form-control" value="login" formaction=""></input>
+                                        <input type="submit" id="submit" class="form-control" value="login" formaction=""></input>
                                     </div>
+                                    <div id="email-verification-message" style="display: none;">
+                                        Verification email sent! Please check your inbox.
+                                    </div>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#passwordResetModal">
+                                        Reset Password
+                                      </button>
                                       
                                 </div>
                             </form>
-                            <div class="options">
-                                <div class="seperator">
-                                    <p>or continue with</p>
-                                </div>
-                                <ul class="d-inline-flex">
-                                    <li class="ga"><a href="#"><i class="ri-google-fill ri-2x"></i></a></li>
-                                    <li class="mx-3"><a href="#"><i class="ri-apple-fill ri-2x"></i></a></li>
-                                    <li class="mx-3"><a href="#"><i class="ri-facebook-fill ri-2x"></i></a></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
+
+                <!-- Password Reset Modal -->
+        <div class="modal fade" id="passwordResetModal" tabindex="-1" aria-labelledby="passwordResetModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="passwordResetModalLabel">Password Reset</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form id="password-reset-form">
+                    <div class="mb-3">
+                    <label for="password-reset-email" class="col-form-label">Email:</label>
+                    <input type="email" class="form-control" id="password-reset-email">
+                    </div>
+                    <p id="password-reset-message" style="display: none;">Password reset email sent!</p>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Send password reset email">
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+  
 
         <footer class="site-footer section-padding">
             <div class="container">
@@ -217,8 +219,6 @@ https://templatemo.com/tm-590-topic-listing
 
                     <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
                         <p class="copyright-text mt-lg-5 mt-4">Copyright © 2023 CertifAI. All rights reserved.
-                        <br><br>Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
-                        
                     </div>
 
                 </div>
@@ -232,53 +232,44 @@ https://templatemo.com/tm-590-topic-listing
         <script src="public/js/custom.js"></script>
 
 
-            <!-- Include Firebase scripts first -->
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+        <!-- Include Firebase scripts first -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 
-<!-- include config.js -->
+        <script src="./firebase.js"></script>
+        <!-- initialize Firebase and set up signUp function -->
+        <script>
+            const signInForm = document.getElementById('sign-in-form');
+
+        signInForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+            await firebase.auth().signInWithEmailAndPassword(email, password);
+            console.log('Signed in successfully!');
+            window.location.href = "index.html";
+            } catch (error) {
+            console.log('Error signing in:', error);
+            }
+        });
 
 
-<!-- initialize Firebase and set up signUp function -->
-<script>
-    //  web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyCmbhXwRTMiyXl_y1wrPnOY-mipeAMi8T0",
-        authDomain: "certifai-8afc6.firebaseapp.com",
-        projectId: "certifai-8afc6",
-        storageBucket: "certifai-8afc6.appspot.com",
-        messagingSenderId: "1073534950411",
-        appId: "1:1073534950411:web:400de3999bd7730c353b0e",
-        measurementId: "G-BXVF3JMY0N"
-    };
+            document.getElementById('password-reset-form').addEventListener('submit', (event) => {
+                event.preventDefault();
 
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-
-    // Log in function
-    function logIn(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        auth.signInWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-                // Signed in 
-                var user = userCredential.user;
-                window.location.href = "/";
-            })
-            .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                alert(errorMessage);
+                const email = document.getElementById('password-reset-email').value;
+                const message = document.getElementById('password-reset-message');
+                firebase.auth().sendPasswordResetEmail(email).then(() => {
+                    message.style.display = 'block';
+                    console.log('Password reset email sent!');
+                }).catch((error) => {
+                    console.log('Error sending password reset email: ', error);
+                });
             });
-    }
 
-    // Event Listener for Login Button
-    const submitBtn = document.getElementById('login');
-    submitBtn.addEventListener('click', logIn);
-</script>
+        </script>
     </body>
 </html>

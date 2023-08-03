@@ -7,27 +7,13 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Report Issues Page</title>
+        <title>CertifAI - Report Issue</title>
 
-        <!-- CSS FILES -->        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
-                        
         <link href="public/css/bootstrap.min.css" rel="stylesheet">
 
         <link href="public/css/bootstrap-icons.css" rel="stylesheet">
 
-        <link href="public/css/templatemo-topic-listing.css" rel="stylesheet">
-<!--
-
-TemplateMo 590 topic listing
-
-https://templatemo.com/tm-590-topic-listing
-
--->
+        <link href="public/css/template.css" rel="stylesheet">
     </head>
     
     <body class="topics-listing-page" id="top">
@@ -40,53 +26,53 @@ https://templatemo.com/tm-590-topic-listing
                         <i class="bi-back"></i>
                         <span>CertifAI</span>
                     </a>
-
-                    <div class="d-lg-none ms-auto me-4">
-                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+        
+                    <div class="d-lg-none ms-auto me-4 dropdown">
+                            <ul class="" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a id="login" class="p-2 border rounded-border login" href="login.html">Login</a></li>
+                                <li><a id="signup" class="p-2 border rounded-border signup" href="signup.html">Sign Up</a></li>
+                                <li><a id="signout" class="p-2 border rounded-border signout" href="#">Sign Out</a></li>
+                            </ul>
                     </div>
-    
+        
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-    
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-lg-5 me-lg-auto">
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="index.html#section_1">HOME</a>
                             </li>
-
+        
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="index.html#section_2">USE CASES</a>
                             </li>
-    
+        
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="index.html#section_3">ABOUT CERTIFAI</a>
                             </li>
-
+        
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="index.html#section_4">FAQs</a>
                             </li>
-    
+        
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" href="index.html#section_5">Contact</a>
+                                <a class="nav-link click-scroll" href="index.html#section_5">CONTACT</a>
                             </li>
-
+        
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">PAGES</a>
-
+                                <a class="nav-link dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
                                 <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                   <!-- <li><a class="dropdown-item" href="topics-listing.html">Topics Listing</a></li> -->
-
-                                    <li><a class="dropdown-item active" href="contact.html">REPORT ISSUES</a></li>
+                                    <li><a class="dropdown-item active" href="contact.html">REPORT ISSUE</a></li>
                                 </ul>
                             </li>
                         </ul>
                         <div class="d-none d-lg-block dropdown">
                             <a class="navbar-icon bi-person smoothscroll nav-link " href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                <li><a class="dropdown-item" href="login.html">Login</a></li>
-                                <li><a class="dropdown-item" href="login.html">Sign Up</a></li>
+                                <li><a id="login" class="dropdown-item login" href="login.html">Login</a></li>
+                                <li><a id="signup" class="dropdown-item signup" href="signup.html">Sign Up</a></li>
+                                <li><a id="signout" class="dropdown-item signout" href="#">Sign Out</a></li>
                             </ul>
                         </div>
                     </div>
@@ -229,7 +215,7 @@ https://templatemo.com/tm-590-topic-listing
                     <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
 
                         <p class="copyright-text mt-lg-5 mt-4">Copyright © 2023 CertifAI. All rights reserved.
-                        <br><br>Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+
                         
                     </div>
 
@@ -242,13 +228,12 @@ https://templatemo.com/tm-590-topic-listing
         <script src="public/js/bootstrap.bundle.min.js"></script>
         <script src="public/js/jquery.sticky.js"></script>
         <script src="public/js/custom.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+        <script src="./firebase.js"></script>
 
     </body>
 
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-    <!--<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>-->
-    <!--<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>-->
-    <script src="config.js"></script>
+
 
 </html>
