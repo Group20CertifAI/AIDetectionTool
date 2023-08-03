@@ -89,11 +89,20 @@
             </nav>
 
 
-            <section class="section-padding section-bg">
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
                 <div class="container">
-                    <textarea name="tobe" id="tobe">This is where our repsonse will be generated.</textarea>
+                    <div class="row">
+                        <div class="col-lg-8 col-12 mx-auto">
+                            <h1 class="text-white text-center">Results</h1>
+                            <h6 class="text-center">Here are the results of the AI content detection:</h6>
+                            <div style="background-color: white; border-radius: 1.5rem;" class="mt-4 p-2 container">
+                                <textarea id="results" class="container resize pt-3 px-3 w-100 border-0" style="border-radius: 1.6rem;" placeholder="Results will be displayed here..." rows="10" readonly></textarea>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
+            
         </main>
 
         <footer class="site-footer section-padding">
