@@ -112,7 +112,7 @@
                             <h1 class="mb-4 pb-2">Sign up to <br>Know What's Real</h1></h1>
                         </div>
                         <div class="col-lg-6 col-12">
-                            <form onsubmit="return signUp()" class="custom-form contact-form" role="form">
+                            <form id="signup-form" class="custom-form contact-form signup-form" role="form">
                                 <div class="row">
                                     <div class="col-12"> 
                                         <div class="form-floating">
@@ -137,6 +137,34 @@
                 </div>
             </section>
         </main>
+
+        <!-- Modal for weak password -->
+        <div class="modal" tabindex="-1" id="weakPasswordModal">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                <p>Password should be at least 6 characters long.</p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        <!-- Modal for email already in use -->
+        <div class="modal" tabindex="-1" id="signInModal">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                <p>Email already in use. Please log in instead.</p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
 
         <footer class="site-footer section-padding">
             <div class="container">
@@ -206,30 +234,42 @@
         <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
         <script src="./firebase.js"></script>
         <script>
-        // Sign up using Firebase Authentication
-        function signUp() {
+            // Function to sign up
+            const signUp = async (event, email, password) => {
             event.preventDefault();
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
+            try {
+                await firebase.auth().createUserWithEmailAndPassword(email, password);
+                console.log('User signed up');
+                window.location.href = '/AIDetectionTool/index.html';
+            } catch (error) {
+                // Handle Errors here.
+                let errorCode = error.code;
+                let errorMessage = error.message;
+                if (errorCode == 'auth/weak-password') {
+                $('#weakPasswordModal').modal('show');
+                } else if (errorCode == 'auth/email-already-in-use') {
+                $('#signInModal').modal('show');
+                }
+                console.error('Error signing up:', error);
+            }
+            };
             
-            firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-                // User created 
-                var user = userCredential.user;
-                // Send email verification
-                user.sendEmailVerification().then(() => {
-                console.log('Verification email sent!');
-                window.location.href = "login.html"; // Redirect to login page
-                }).catch((error) => {
-                console.error('Error sending verification email:', error);
-                });
-            })
-            .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                console.error('Error signing up:', errorMessage);
+             // Get the form elements
+            const signupForm = document.getElementById('signup-form');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+
+            // Handle form submission
+            signupForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const email = emailInput.value;
+                const password = passwordInput.value;
+                if (password.length < 6) {
+                $('#weakPasswordModal').modal('show');
+                } else {
+                signUp(event, email, password);
+                }
             });
-        }
-          </script>
+        </script>
     </body>
 </html>
