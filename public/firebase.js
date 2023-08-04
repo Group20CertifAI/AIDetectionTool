@@ -18,6 +18,10 @@ const initializeFirebase = () => {
 
 initializeFirebase();
 
+const perf = firebase.performance();
+
+const analytics = firebase.analytics();
+
 // Get all elements
 const loginButtons = document.getElementsByClassName('login');
 const signupButtons = document.getElementsByClassName('signup');
