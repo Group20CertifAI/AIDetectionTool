@@ -249,7 +249,7 @@
             try {
                 await firebase.auth().createUserWithEmailAndPassword(email, password);
                 console.log('User signed up');
-                window.location.href = '/AIDetectionTool/index.html';
+                window.location.href = '/index.html';
             } catch (error) {
                 // Handle Errors here.
                 let errorCode = error.code;
